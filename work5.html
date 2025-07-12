@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品詳細 - 架空サイト (Fashion)</title>
+    <link rel="stylesheet" href="css/reset/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/work.css">
+</head>
+<body>
+   <!-- ローディング画面 -->
+   <div id="loading" class="loading-screen">
+    <div class="loading-content">
+        <div class="loading-animation">            
+            <div class="loading-wave">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+        </div>
+        <p class="loading-text">Loading Portfolio...</p>
+    </div>
+</div>
+
+
+    <!-- メインコンテンツ -->
+    <main class="main-content">
+        <header class="page-header">
+            <h1 class="page-title">WORKS</h1>
+            <div class="title-divider"></div>
+        </header>
+        <section class="project-info">
+            <h2 class="project-title">架空サイト　React学習</h2>
+            <div class="project-tags">
+                <span class="tag tag-outline"># React</span>
+                <span class="tag tag-filled"># クイズアプリ</span>
+                <span class="tag tag-outline"># SCSS Modules</span>
+            </div>
+            <div class="project-url">
+                <span class="url-label">URL</span>
+                <a href="#" class="url-link">https://example-react-quiz.com</a>
+            </div>
+        </section>
+        <section class="project-image">
+            <div class="mockup-container">
+                <div class="desktop-mockup">
+                    <img src="https://via.placeholder.com/800x500/2C5A5A/FFFFFF?text=Desktop+View" alt="デスクトップ表示">
+                </div>
+                <div class="mobile-mockup">
+                    <img src="https://via.placeholder.com/300x600/2C5A5A/FFFFFF?text=Mobile+View" alt="モバイル表示">
+                </div>
+            </div>
+        </section>
+        <section class="project-details">
+            <div class="detail-item">
+                <h3 class="detail-title">制作概要</h3>
+                <div class="detail-content">
+                    HTML/CSSの基礎学習の集大成として、カフェをテーマにした架空サイトをデザイン。その後、ReactとSCSS Modulesを用いて、インタラクティブかつ動的な体験が得られるWebアプリケーションへと発展させました。トップページにはファーストビューアニメーションとCTA導線を設置し、UXを意識した設計を実現。さらにクイズ回答結果に応じたクーポン表示機能も実装しています。
+                </div>
+            </div>
+            <div class="detail-item">
+                <h3 class="detail-title">制作目的</h3>
+                <div class="detail-content">
+                    <ul>
+                        <li>配色・余白・フォント設計の一貫性を意識し、実務レベルのUI感覚を養うこと。</li>
+                        <li>グリッド・シングルカラム・2カラム構成など、複数のレイアウトパターンに対応できる土台を作ること。</li>
+                        <li>React Hooks（useEffect, useState）やモジュール分割による保守性と拡張性を学ぶこと。</li>
+                        <li>ページ遷移・スクロール・ホバーに応じたアニメーションの導入で、表現力と動的UIを強化。</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detail-item">
+                <h3 class="detail-title">使用技術</h3>
+                <div class="detail-content">
+                    <ul>
+                        <li>フロントエンド：React（Vite）</li>
+                        <li>スタイリング：SCSS Modules</li>
+                        <li>ルーティング：React Router</li>
+                        <li>アニメーション：Intersection Observer／CSS Animation／Custom Hooks</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detail-item">
+                <h3 class="detail-title">主な機能（クイズアプリ）</h3>
+                <div class="detail-content">
+                    <ul>
+                        <li>全5問の選択式クイズ</li>
+                        <li>回答に応じた動的な結果表示（正答数と％）</li>
+                        <li>正答率に応じたクーポンコードの自動表示</li>
+                        <li>ページロード・スクロール時のフェードイン演出</li>
+                        <li>グローバルな共通UI（Header／Footer）をコンポーネント化</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="detail-item">
+                <h3 class="detail-title">今後の展望</h3>
+                <div class="detail-content">
+                    <ul>
+                        <li>Headless CMSやFirebaseとの連携により、メニュー情報の管理機能を追加予定。</li>
+                        <li>アニメーションライブラリ（Framer Motion等）を活用し、よりリッチなUI表現にも挑戦していきたい。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <p>&copy; 2025 Miito Ota. All rights reserved.</p>
+    </footer>
+
+    <!-- フローティングナビゲーション -->
+    <div class="floating-nav">
+        <button class="floating-nav-toggle" id="floatingNavToggle">
+            <span class="nav-icon"></span>
+            <span class="nav-icon"></span>
+            <span class="nav-icon"></span>
+        </button>
+        <div class="floating-nav-menu" id="floatingNavMenu">
+            <a href="index.html" class="floating-nav-item">HOME</a>
+            <a href="index.html#works" class="floating-nav-item">WORKS</a>
+            <a href="index.html#about" class="floating-nav-item">ABOUT</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

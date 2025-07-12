@@ -1,0 +1,767 @@
+@import 'common';
+
+// =====================
+// メインスタイル
+// =====================
+
+.header {
+  display: none; // ヘッダーを非表示
+}
+
+.nav-list {
+  display: none; // ナビゲーションリストを非表示
+}
+
+.nav-item {
+  a {
+    display: none; // ナビゲーションアイテムを非表示
+    &:hover {
+      color: $color-accent-yellow; // ホバー時の色
+    }
+  }
+}
+
+.hero-section {
+  @include main-gradient;
+  color: $color-white;
+  height: 600px; // メインビジュアルの高さ
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: none; // ヘッダーからの線を削除
+
+  h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    color: $color-white;
+  }
+  p {
+    font-size: 1.2em;
+    opacity: 0.8;
+    color: $color-gray;
+  }
+}
+
+.works-section, .about-section, .contact-section {
+  padding: 80px 40px;
+  text-align: center;
+  background-color: $color-main-bg;
+
+  h2 {
+    font-size: 2.5em;
+      color: #00B4A6;
+      margin-bottom: 50px;
+      position: relative;
+      font-weight: bold;
+      
+      &::after {
+          content: '';
+          display: block;
+          width: 160px;
+          height: 3px;
+          background-color: #00B4A6;
+          margin: 10px auto 0;
+      }
+  }
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.work-item {
+  @include card-style(#1A2B2B, 1px solid #2C4747, 10px, 0 5px 15px rgba(0,0,0,0.2));
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+  }
+  h3 {
+    color: #B0E0E6;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  p {
+    color: #A0A0A0;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.footer {
+  @include footer-style;
+}
+
+// JavaScriptアニメーション用スタイル
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Worksセクションの2列表示と区切り線
+.works-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.works-item-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 40px;
+  align-items: start;
+  position: relative;
+}
+
+.work-item-divider {
+  background-color: #3A6A6A;
+  width: 1px;
+  height: 100%;
+  min-height: 300px;
+}
+
+.works-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #3A6A6A;
+  margin: 0 auto;
+}
+
+// レスポンシブ対応
+@media (max-width: $breakpoint-md) {
+  .works-item-wrapper {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .work-item-divider {
+    display: none;
+  }
+  .work-item {
+    margin-bottom: 20px;
+    position: relative;
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background-color: #2C4747;
+    }
+  }
+  .works-item-wrapper:last-child .work-item:last-child::after {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+// Aboutセクションのスタイル
+.about-section {
+  padding: 80px 40px;
+  text-align: center;
+  background-color: #2C5A5A;
+  
+  h2 {
+      font-size: 2.5em;
+      color: #00B4A6;
+      margin-bottom: 50px;
+      position: relative;
+      font-weight: bold;
+      
+      &::after {
+          content: '';
+          display: block;
+          width: 160px;
+          height: 3px;
+          background-color: #00B4A6;
+          margin: 10px auto 0;
+      }
+  }
+}
+
+.about-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+  text-align: left;
+  
+  @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+  }
+}
+
+// プロフィール画像
+.about-image {
+  display: flex;
+  justify-content: center;
+  
+  .profile-image {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00B4A6;
+      box-shadow: 0 10px 30px rgba(0, 180, 166, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 15px 40px rgba(0, 180, 166, 0.5);
+      }
+      
+      @media (max-width: 768px) {
+          width: 220px;
+          height: 220px;
+      }
+  }
+}
+
+// プロフィール情報
+.about-info {
+  color: #FFFFFF;
+}
+
+.about-name {
+  font-size: 2.2em;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.about-title {
+  font-size: 1.3em;
+  color: #00B4A6;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.about-description {
+  margin-bottom: 40px;
+  
+  p {
+      color: #E0F0F0;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1.1em;
+      
+      &:last-child {
+          margin-bottom: 0;
+      }
+  }
+}
+
+// スキル
+.about-skills {
+  margin-bottom: 40px;
+  
+  h4 {
+      color: #00B4A6;
+      font-size: 1.4em;
+      margin-bottom: 20px;
+      font-weight: bold;
+  }
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  
+  .skill-tag {
+    @include tag-style-small($color-main-bg-dark, $color-white, 1px solid $color-accent);
+  }
+}
+
+// 経歴
+.about-experience {
+  h4 {
+      color: #00B4A6;
+      font-size: 1.4em;
+      margin-bottom: 25px;
+      font-weight: bold;
+  }
+}
+
+.experience-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #3A6A6A;
+  
+  &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 10px;
+      text-align: center;
+  }
+}
+
+.experience-period {
+  color: #00B4A6;
+  font-weight: bold;
+  font-size: 0.95em;
+  
+  @media (max-width: 768px) {
+      font-size: 0.9em;
+  }
+}
+
+.experience-content {
+  h5 {
+      color: #FFFFFF;
+      font-size: 1.2em;
+      margin-bottom: 8px;
+      font-weight: bold;
+  }
+  
+  p {
+      color: #B0D0D0;
+      line-height: 1.6;
+      font-size: 1em;
+  }
+}
+
+// アニメーション用のクラス
+.about-container {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  
+  &.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.about-image .profile-image {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  
+  &.is-visible {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.about-info {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+  
+  &.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+
+
+
+// 右下のフローティングナビゲーション
+.floating-nav {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+
+  @media (max-width: 768px) {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+.floating-nav-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1A4040 0%, #2C5A5A 100%);
+  border: 2px solid #00B4A6;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 180, 166, 0.3);
+
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.floating-nav-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 180, 166, 0.5);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 2px;
+  background-color: #00B4A6;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+
+  @media (max-width: 768px) {
+    width: 16px;
+  }
+}
+
+.floating-nav-toggle.active {
+  .nav-icon:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-icon:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-icon:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+}
+
+.floating-nav-menu {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  background: linear-gradient(135deg, #1A4040 0%, #2C5A5A 100%);
+  border: 1px solid #3A6A6A;
+  border-radius: 15px;
+  padding: 15px 0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    bottom: 70px;
+    min-width: 100px;
+  }
+}
+
+.floating-nav-item {
+  display: block;
+  padding: 12px 20px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  &:hover {
+    background-color: rgba(0, 180, 166, 0.1);
+    color: #00B4A6;
+    border-left-color: #00B4A6;
+    padding-left: 25px;
+  }
+  @media (max-width: 768px) {
+    padding: 10px 15px;
+    font-size: 13px;
+  }
+}
+
+// ローディング画面のスタイル
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2C5A5A 0%, #1A4040 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+  &.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.loading-content {
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.loading-animation {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 30px;
+}
+
+// ドットアニメーション
+.loading-dots {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+}
+
+.dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #00B4A6, #00D4C4);
+  border-radius: 50%;
+  animation: dotRotate 2s linear infinite;
+  box-shadow: 0 0 10px rgba(0, 180, 166, 0.5);
+  &:nth-child(1) { transform: rotate(0deg) translateY(-30px); animation-delay: 0s; }
+  &:nth-child(2) { transform: rotate(72deg) translateY(-30px); animation-delay: 0.2s; }
+  &:nth-child(3) { transform: rotate(144deg) translateY(-30px); animation-delay: 0.4s; }
+  &:nth-child(4) { transform: rotate(216deg) translateY(-30px); animation-delay: 0.6s; }
+  &:nth-child(5) { transform: rotate(288deg) translateY(-30px); animation-delay: 0.8s; }
+}
+
+@keyframes dotRotate {
+  0% {
+    transform: rotate(0deg) translateY(-30px) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(180deg) translateY(-30px) scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: rotate(360deg) translateY(-30px) scale(1);
+    opacity: 1;
+  }
+}
+
+// ウェーブアニメーション
+.loading-wave {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+  align-items: end;
+}
+
+.wave-bar {
+  width: 4px;
+  background: linear-gradient(to top, #00B4A6, #00D4C4);
+  border-radius: 2px;
+  animation: waveHeight 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(0, 180, 166, 0.3);
+  &:nth-child(1) { height: 20px; animation-delay: 0s; }
+  &:nth-child(2) { height: 30px; animation-delay: 0.1s; }
+  &:nth-child(3) { height: 40px; animation-delay: 0.2s; }
+  &:nth-child(4) { height: 30px; animation-delay: 0.3s; }
+  &:nth-child(5) { height: 20px; animation-delay: 0.4s; }
+}
+
+@keyframes waveHeight {
+  0%, 100% {
+    transform: scaleY(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scaleY(1.8);
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  font-size: 1.1em;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  margin: 0;
+  font-weight: 300;
+  animation: textPulse 2s ease-in-out infinite;
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(0, 180, 166, 0.5);
+  }
+}
+
+// =====================
+// カスタムカーソルのスタイル
+// =====================
+* {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  @media (max-width: 768px) {
+    display: none;
+  }
+  @media (hover: none) {
+    display: none;
+  }
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background-color: #00B4A6;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.03s ease;
+  z-index: 10001;
+  &.text-hover {
+    width: 4px;
+    height: 4px;
+    background-color: #FFFFFF;
+    mix-blend-mode: difference;
+  }
+  &.link-hover {
+    width: 12px;
+    height: 12px;
+    background-color: #00D4C4;
+    box-shadow: 0 0 20px rgba(0, 180, 166, 0.5);
+  }
+}
+
+.cursor-outline {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 2px solid rgba(0, 180, 166, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.03s ease;
+  z-index: 10000;
+  &.text-hover {
+    width: 60px;
+    height: 60px;
+    border-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    mix-blend-mode: difference;
+  }
+  &.link-hover {
+    width: 48px;
+    height: 48px;
+    border-color: rgba(0, 212, 196, 0.6);
+    background-color: rgba(0, 180, 166, 0.1);
+  }
+  &.button-hover {
+    width: 80px;
+    height: 80px;
+    border-color: rgba(0, 180, 166, 0.8);
+    background-color: rgba(0, 180, 166, 0.05);
+  }
+}
+
+a, button, [role="button"], .clickable {
+  &:hover {
+    transform: translateY(-1px);
+    transition: transform 0.2s ease;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div {
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: text-shadow 0.2s ease;
+  }
+}
+
+.show-default-cursor {
+  cursor: default !important;
+  * {
+    cursor: default !important;
+  }
+}
+
+.custom-cursor.inactive {
+  .cursor-dot,
+  .cursor-outline {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+
+@keyframes cursor-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+.cursor-dot.clicking {
+  animation: cursor-pulse 0.3s ease;
+}
+
+.cursor-outline.clicking {
+  animation: cursor-pulse 0.3s ease;
+} 

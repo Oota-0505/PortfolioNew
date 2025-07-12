@@ -1,0 +1,108 @@
+// =====================
+// 共通変数・mixin
+// =====================
+
+// カラー変数
+$color-main-bg: #2C5A5A;
+$color-main-bg-dark: #1A4040;
+$color-accent: #00B4A6;
+$color-accent-yellow: #FFD700;
+$color-white: #FFFFFF;
+$color-gray: #E0F0F0;
+$color-footer: #B0D0D0;
+$color-border: #3A6A6A;
+
+// レスポンシブブレークポイント
+$breakpoint-md: 768px;
+
+// メイングラデーション
+@mixin main-gradient {
+  background: linear-gradient(135deg, $color-main-bg 0%, $color-main-bg-dark 100%);
+}
+
+// アクセント下線
+@mixin accent-underline($width: 60px, $color: $color-accent-yellow) {
+  content: '';
+  display: block;
+  width: $width;
+  height: 3px;
+  background-color: $color;
+  margin: 15px auto 0;
+}
+
+// ローディングドットアニメーション
+@mixin dot-animation($index, $deg, $delay) {
+  &:nth-child(#{$index}) {
+    transform: rotate(#{$deg}deg) translateY(-30px);
+    animation-delay: #{$delay}s;
+  }
+}
+
+// レスポンシブmixin
+@mixin responsive {
+  @media (max-width: $breakpoint-md) {
+    @content;
+  }
+}
+
+// =====================
+// フッター共通mixin
+// =====================
+@mixin footer-style {
+  background-color: $color-main-bg-dark;
+  border-top: 1px solid $color-border;
+  padding: 20px 0;
+  color: $color-footer;
+  font-size: 0.9em;
+  text-align: center;
+  p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+// =====================
+// タグ・バッジ共通mixin
+// =====================
+@mixin tag-style($bg: transparent, $color: $color-accent, $border: 2px solid $color-accent) {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: $bg;
+  color: $color;
+  border: $border;
+}
+
+// 小さめタグ用
+@mixin tag-style-small($bg: transparent, $color: $color-accent, $border: 1px solid $color-accent) {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: $bg;
+  color: $color;
+  border: $border;
+}
+
+// =====================
+// カード共通mixin
+// =====================
+@mixin card-style($bg: $color-main-bg, $border: 1px solid $color-border, $radius: 10px, $shadow: 0 5px 15px rgba(0,0,0,0.3)) {
+  background-color: $bg;
+  border: $border;
+  border-radius: $radius;
+  overflow: hidden;
+  box-shadow: $shadow;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 180, 166, 0.2);
+  }
+} 
