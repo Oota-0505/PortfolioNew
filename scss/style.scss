@@ -24,25 +24,50 @@
 .hero-section {
   @include main-gradient;
   color: $color-white;
-  height: 600px; // メインビジュアルの高さ
+  height: 100vh;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: none; // ヘッダーからの線を削除
+  border: none;
+  margin-bottom: 0;
+  padding: 0;
 
-  h1 {
-    font-size: 3.5em;
-    margin-bottom: 10px;
+  .hero-title {
+    font-size: 4em;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #00B4A6 30%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 8px 32px rgba(0,180,166,0.15);
+    margin-bottom: 18px;
+  }
+  .hero-sub {
+    font-size: 1.5em;
+    color: #B0E0E6;
+    margin-bottom: 40px;
     letter-spacing: 2px;
-    color: $color-white;
   }
-  p {
+  .scroll-down {
+    margin-top: 40px;
     font-size: 1.2em;
-    opacity: 0.8;
-    color: $color-gray;
+    color: #00B4A6;
+    opacity: 0.7;
+    animation: scrollDownAnim 2s infinite;
   }
+}
+
+@keyframes scrollDownAnim {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(16px);}
+}
+
+.works-section {
+  padding-top: 40px;
+  margin-top: 0;
 }
 
 .works-section, .about-section, .contact-section {
@@ -73,15 +98,19 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
   margin-top: 20px;
+  align-items: start;
 }
 
 .work-item {
   @include card-style(#1A2B2B, 1px solid #2C4747, 10px, 0 5px 15px rgba(0,0,0,0.2));
   img {
     max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
     border-radius: 5px;
     margin-bottom: 15px;
+    display: block;
   }
   h3 {
     color: #B0E0E6;
@@ -764,4 +793,134 @@ h1, h2, h3, h4, h5, h6, p, span, div {
 
 .cursor-outline.clicking {
   animation: cursor-pulse 0.3s ease;
+} 
+
+// =====================
+// タイムラインスタイル（CSSから移行）
+// =====================
+.timeline-experience {
+  margin-top: 40px;
+}
+
+.timeline {
+  position: relative;
+  margin: 60px auto 0 auto;
+  padding-left: 40px;
+  max-width: 650px;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 22px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #00B4A6 0%, #283e51 100%);
+    border-radius: 2px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 56px;
+  padding-left: 38px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: -32px;
+    top: -1px;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    border: 4px solid #00B4A6;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 180, 166, 0.15);
+    z-index: 1;
+  }
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #00B4A6;
+  font-size: 1.15em;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.timeline-title {
+  font-size: 1.18em;
+  font-weight: 600;
+  color: #283e51;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.timeline-desc {
+  color: #444;
+  font-size: 1em;
+  line-height: 1.9;
+  background: #f7fafd;
+  border-radius: 10px;
+  padding: 18px 22px;
+  box-shadow: 0 2px 8px rgba(40, 62, 81, 0.04);
+  margin-bottom: 2px;
+}
+
+// レスポンシブ対応
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 16px;
+    max-width: 98vw;
+    
+    &::before {
+      left: 8px;
+    }
+  }
+  
+  .timeline-item {
+    padding-left: 20px;
+    margin-bottom: 38px;
+    
+    &::before {
+      left: -18px;
+      width: 16px;
+      height: 16px;
+      
+    }
+  }
+  
+  .timeline-date {
+    font-size: 1em;
+  }
+  
+  .timeline-title {
+    font-size: 1em;
+  }
+  
+  .timeline-desc {
+    font-size: 0.93em;
+    padding: 12px 10px;
+  }
+} 
+
+// TOPページ専用 WORKS画像スタイル
+.top-works .work-item img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.work-item img {
+  max-width: 100%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: block;
 } 

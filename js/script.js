@@ -392,3 +392,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+// Heroセクション バブルアニメーション
+(function() {
+  const canvas = document.getElementById('hero-bubbles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let dpr = window.devicePixelRatio || 1;
+  let width = 0, height = 0;
+  function resize() {
+    width = window.innerWidth;
+    height = document.querySelector('.hero-section').offsetHeight;
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    ctx.setTransform(1,0,0,1,0,0);
+    ctx.scale(dpr, dpr);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // バブル生成
+  const BUBBLE_COUNT = 20;
+  const bubbleColors = [
+    'rgba(0,180,255,0.10)',
+    'rgba(0,120,200,0.13)',
+    'rgba(40,80,180,0.09)',
+    'rgba(80,180,255,0.08)'
+  ];
+  const bubbles = [];
+  for (let i = 0; i < BUBBLE_COUNT; i++) {
+    bubbles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      r: 24 + Math.random() * 32,
+      speed: 0.3 + Math.random() * 0.7,
+      dx: (Math.random() - 0.5) * 0.5,
+      color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)]
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    for (const b of bubbles) {
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = b.color;
+      ctx.fill();
+      b.y -= b.speed;
+      b.x += b.dx;
+      if (b.y + b.r < 0) {
+        b.y = height + b.r;
+        b.x = Math.random() * width;
+      }
+      if (b.x < -b.r) b.x = width + b.r;
+      if (b.x > width + b.r) b.x = -b.r;
+    }
+    requestAnimationFrame(animate);
+  }
+  animate();
+})();
+

@@ -455,6 +455,122 @@ body{
   @include footer-style;
 }
 
+// =====================
+// ランキングカードのスタイル
+// =====================
+
+.ranking-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 30px 0;
+}
+
+.ranking-card {
+  @include card-style(#1A2B2B, 1px solid #3A6A6A, 12px, 0 8px 25px rgba(0, 180, 166, 0.15));
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #00B4A6, #00D4C4);
+    opacity: 0.8;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(0, 180, 166, 0.25);
+    border-color: #00B4A6;
+  }
+  
+  &.ranking-top {
+    background: linear-gradient(135deg, #1A2B2B 0%, #2C4747 100%);
+    border-color: #00B4A6;
+    box-shadow: 0 8px 25px rgba(0, 180, 166, 0.2);
+    
+    &::before {
+      background: linear-gradient(to bottom, #FFD700, #FFA500);
+      opacity: 1;
+    }
+    
+    .ranking-number {
+      background: linear-gradient(135deg, #FFD700, #FFA500);
+      color: #1A2B2B;
+      font-weight: bold;
+    }
+  }
+}
+
+.ranking-number {
+  background: linear-gradient(135deg, #00B4A6, #00D4C4);
+  color: #FFFFFF;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 180, 166, 0.3);
+}
+
+.ranking-content {
+  flex: 1;
+}
+
+.ranking-title {
+  color: #FFFFFF;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.ranking-link {
+  color: #00B4A6;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  
+  &:hover {
+    color: #00D4C4;
+    transform: translateX(5px);
+  }
+  
+  &::after {
+    content: '→';
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+  }
+  
+  &:hover::after {
+    transform: translateX(3px);
+  }
+}
+
+.ranking-summary {
+  text-align: center;
+  font-style: italic;
+  color: #B0E0E6;
+  margin-top: 20px;
+  font-size: 1.1em;
+}
+
 // レスポンシブ対応
 @media (max-width: 768px) {
   .main-content {
@@ -481,6 +597,31 @@ body{
   .all-works-title {
     font-size: 2.5em;
     letter-spacing: 2px;
+  }
+  
+  // ランキングカードのレスポンシブ対応
+  .ranking-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .ranking-card {
+    padding: 15px;
+  }
+  
+  .ranking-number {
+    width: 50px;
+    height: 50px;
+    font-size: 1em;
+    margin-right: 15px;
+  }
+  
+  .ranking-title {
+    font-size: 1em;
+  }
+  
+  .ranking-link {
+    font-size: 0.85em;
   }
 } 
 
