@@ -1,14 +1,18 @@
 // ===== ローディング画面の非表示処理 =====
-window.addEventListener('load', function() {
+function hideLoading() {
     const loadingScreen = document.getElementById('loading');
     if (loadingScreen) {
+        loadingScreen.classList.add('hidden');
         setTimeout(() => {
-            loadingScreen.classList.add('hidden');
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 500);
-        }, 800); // 0.8秒後にローディング終了
+            loadingScreen.style.display = 'none';
+        }, 500);
     }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(hideLoading, 800); // 0.8秒後にローディング終了
+    // 念のため2秒で強制的に消す
+    setTimeout(hideLoading, 2000);
 });
 
 // ===== 新デザインシステム JavaScript =====
