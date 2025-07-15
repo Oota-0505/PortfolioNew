@@ -345,37 +345,25 @@ if (document.querySelector('.related-works-grid')) {
 }
 
 // ===== アートカーソル追従 =====
-// マウス位置を常に記録
-window.lastMouseX = window.innerWidth / 2;
-window.lastMouseY = window.innerHeight / 2;
-document.addEventListener('mousemove', function(e) {
-    window.lastMouseX = e.clientX;
-    window.lastMouseY = e.clientY;
-});
-
 function setupArtCursor() {
+  // 既存のart-cursorをすべて削除
   document.querySelectorAll('#art-cursor').forEach(el => el.remove());
+  // 新規生成
   const artCursor = document.createElement('div');
   artCursor.id = 'art-cursor';
   document.body.appendChild(artCursor);
-
-  let mouseX = window.lastMouseX;
-  let mouseY = window.lastMouseY;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
   let cursorX = mouseX;
   let cursorY = mouseY;
-
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
-
   function animateCursor() {
     cursorX += (mouseX - cursorX) * 0.18;
     cursorY += (mouseY - cursorY) * 0.18;
-    // カーソルサイズの半分を動的に取得
-    const offsetX = artCursor.offsetWidth / 2;
-    const offsetY = artCursor.offsetHeight / 2;
-    artCursor.style.transform = `translate3d(${cursorX - offsetX}px, ${cursorY - offsetY}px, 0)`;
+    artCursor.style.transform = `translate3d(${cursorX - 22}px, ${cursorY - 22}px, 0)`;
     requestAnimationFrame(animateCursor);
   }
   animateCursor();
