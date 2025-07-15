@@ -256,7 +256,7 @@ const workList = [
   },
   {
     id: 'work6.html',
-    title: '岐阜県ナビ Blog運営',
+    title: '就労継続ナビ様　Blog',
     desc: '地域情報発信のためのブログサイト運営',
     img: './images/Navi.png',
     link: './work6.html',
@@ -273,7 +273,7 @@ const workList = [
     title: 'ポートフォリオサイト制作・運用',
     desc: '自身のスキル・実績・価値観をまとめた自己紹介用ポートフォリオサイト',
     img: './images/PF.png',
-    link: 'https://portfolionew-82q.pages.dev/',
+    link: './work8.html',
   },
 ];
 
