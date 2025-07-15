@@ -1,21 +1,3 @@
-// ===== ローディング画面の非表示処理 =====
-function hideLoading() {
-    const loadingScreen = document.getElementById('loading');
-    if (loadingScreen) {
-        loadingScreen.classList.add('hidden');
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-            document.body.classList.add('loaded'); // ローディング終了後にカーソル表示
-        }, 500);
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(hideLoading, 800); // 0.8秒後にローディング終了
-    // 念のため2秒で強制的に消す
-    setTimeout(hideLoading, 2000);
-});
-
 // ===== 新デザインシステム JavaScript =====
 
 document.addEventListener('DOMContentLoaded', function() {

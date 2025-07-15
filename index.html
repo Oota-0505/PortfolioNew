@@ -3,12 +3,19 @@
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-R9RMJB5QCV"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-R9RMJB5QCV');
-    </script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // 自分のアクセスを internal に設定
+  gtag('set', 'user_properties', {
+    traffic_type: 'internal'
+  });
+
+  gtag('config', 'G-R9RMJB5QCV');
+</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>太田三一斗　Portfolio</title>
@@ -25,22 +32,6 @@
     <link rel="icon" href="images/icons8-calla-lily-64 (1).png" type="image/png">
 </head>
 <body>
-    <!-- ローディング画面 -->
-    <div id="loading" class="loading-screen">
-        <div class="loading-content">
-            <div class="loading-animation">            
-                <div class="loading-wave">
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                    <div class="wave-bar"></div>
-                </div>
-            </div>
-            <p class="loading-text">Loading Portfolio...</p>
-        </div>
-    </div>
-
     <!-- ヘッダーナビゲーション -->
     <header class="header">
         <nav class="nav-container">
