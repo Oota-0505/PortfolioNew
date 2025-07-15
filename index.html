@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>太田三一斗 ポートフォリオ</title>
+    <title>太田三一斗　Portfolio</title>
+    <meta name="description" content="太田三一斗のポートフォリオサイト。Web開発、WordPress、AI活用の実績をご紹介します。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/work.css">
+    <link rel="icon" href="images/icons8-calla-lily-64 (1).png" type="image/png">
 </head>
 <body>
     <!-- ローディング画面 -->
@@ -25,191 +33,321 @@
         </div>
     </div>
 
+    <!-- ヘッダーナビゲーション -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="#home" class="brand-link">Mihto Oota</a>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#works" class="nav-link">Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+            </ul>
+            <button class="nav-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- HEROセクション -->
     <section id="home" class="hero-section">
-      <canvas id="hero-bubbles"></canvas>
-      <div class="hero-content">
-        <h1 class="hero-title">Mihto Oota</h1>
-        <p class="hero-sub">Web Developer / Writer </p>
-      </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-accent">Mihito Ota</span><br>Portfolio
+                </h1>
+                <p class="hero-subtitle">
+                    会社員3年・経営者5年・在宅経験1年〜
+                </p>
+                <p class="hero-description">
+                    Web制作を軸に、ライティングや英語業務を含む多様な実務経験を活かし、<br>
+                    柔軟に対応いたします。
+                </p>
+                <div class="hero-actions">
+                    <a href="#works" class="btn btn-primary">View My Works</a>
+                    <a href="#about" class="btn btn-outline">About Me</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
     </section>
 
-    <section id="works" class="works-section top-works">
-        <h2>WORKS</h2>
-        <div class="works-container">
-            <div class="works-item-wrapper">
-                <div class="work-item">
-                    <a href="./work.html">
-                        <img src="./images/Screenshot 2025-05-07 at 17.59.08.png" alt="ぎふ就労支援センター様 ホームページリニューアル">
-                        <h3>ぎふ就労支援センター様 ホームページリニューアル</h3>
-                        <p>Web制作 | WordPress | AI活用</p>
-                    </a>
-                </div>
-                <div class="work-item-divider"></div>
-                <div class="work-item">
-                    <a href="./work5.html">
-                        <img src="./images/Screenshot 2025-07-13 at 8.58.05.png" alt="デザイン コード">
-                        <h3>React学習　Coffee コーポレート</h3>
-                        <p>AI活用 | WordPress | Web制作</p>
-                    </a>
-                </div>
-            </div>
-            <div class="works-divider"></div>
-            <div class="works-item-wrapper">
-                <div class="work-item">
-                    <a href="./work3.html">
-                        <img src="./images/MPC.png" alt="MISSIONA様 LP制作">
-                        <h3>MISSIONA様 LP制作</h3>
-                        <p>LP制作 | GitHub | Cloudflare Pages</p>
-                    </a>
-                </div>
-                <div class="work-item-divider"></div>
-                <div class="work-item">
-                    <a href="./work4.html">
-                        <img src="./images/HIROMOZA.png" alt="コンサル系ブログ リニューアル">
-                        <h3>コンサル系ブログ リニューアル</h3>
-                        <p>ブログリニューアル | クラウドワークス案件</p>
-                    </a>
-                </div>
-            </div>
-            <div class="works-divider"></div>
-            <div class="works-item-wrapper">
-                <div class="work-item">
-                    <a href="./work2.html">
-                        <img src="/images/FashonTOP.png" alt="架空サイト (Fashion)">
-                        <h3>架空サイト (Fashion)</h3>
-                        <p>Web制作 | LP | 自主制作</p>
-                    </a>
-                </div>
-                <div class="work-item-divider"></div>
-                <div class="work-item">
-                    <a href="./work6.html">
-                        <img src="./images/Navi.png" alt="就労継続ナビ様 Blog記事">
-                        <h3>就労継続ナビ様 Blog記事</h3>
-                        <p>ライティング | SEO | AI活用</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-            
-</section>
-
-
-
-   <!-- Aboutセクション -->
-<section id="about" class="about-section">
-    <h2>ABOUT</h2>
-    <div class="about-content">
-        <div class="about-container">
-            <!-- プロフィール画像 -->
-            <div class="about-image">
-                <img src="./images/PROFI.png" alt="太田三一斗のプロフィール写真" class="profile-image">
+    <!-- WORKSセクション -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Works</h2>
+                <p class="section-subtitle">
+                    これまでに手がけたプロジェクトの一部をご紹介します
+                </p>
             </div>
             
-            <!-- プロフィール情報 -->
-            <div class="about-info">
-                <div class="about-text">
-                    <h3 class="about-name">太田 三一斗</h3>
-                    <p class="about-title">Web Developer / Writer / English Editor</p>
-                    
-                    <div class="about-description">
-                        <p>
-                            はじめまして、太田と申します。
-                            在宅でWeb制作やSEOライティング、英語教材の校閲などに携わっております。
-                            HTML・CSS・JavaScript・PHP、WordPressによる構築〜公開、カスタムテンプレートの作成も対応可能です。
-                            LP・HP制作／改修などの実務も進めております。
+            <div class="works-grid">
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/Screenshot 2025-05-07 at 17.59.08.png" alt="ぎふ就労支援センター様 ホームページリニューアル" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">ぎふ就労支援センター様<br>ホームページリニューアル</h3>
+                        <p class="work-description">WordPressを活用したレスポンシブWebサイトの制作</p>
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">AI活用</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/Screenshot 2025-07-13 at 8.58.05.png" alt="React学習 Coffee コーポレート" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work5.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">Coffee コーポレートサイト</h3>
+                        <p class="work-description">Reactを使用したモダンなコーポレートサイト</p>
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">React学習</span>
+                            <span class="tag">SCSS Modules</span>
+                            
+                            <span class="tag">自主制作</span>
+                        </div>
+                    </div>
+                </article>
+
+                
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/HIROMOZA.png" alt="コンサル系ブログ リニューアル" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work4.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">コンサル系ブログ リニューアル</h3>
+                        <p class="work-description">ユーザビリティを重視したブログサイトの改善</p>
+                        <div class="work-tags">
+                            <span class="tag">WordPress</span>
+                            <span class="tag">クラウドワークス</span>
+                            <span class="tag">Web制作</span>
+                            <span class="tag">ライティング</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/MPC.png" alt="MISSIONA様 LP制作" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work3.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">MISSIONA様 LP制作</h3>
+                        <p class="work-description">コンバージョンを重視したランディングページ</p>
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">LP</span>
+                            <span class="tag">クラウドワークス</span>
+                            <span class="tag">Basic認証</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/Custom.png" alt="WPカスタムテンプレート作成" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work7.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">WPカスタムテンプレート作成</h3>
+                        <p class="work-description">WordPressカスタムテーマ制作の基礎学習</p>
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">カスタムテーマ</span>
+                            <span class="tag">PHP</span>
+                        </div>
+                    </div>
+                </article>
+
+                
+
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/Navi.png" alt="岐阜県ナビ Blog運営" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work6.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">岐阜県ナビ Blog運営</h3>
+                        <p class="work-description">地域情報発信のためのブログサイト運営</p>
+                        <div class="work-tags">
+                            <span class="tag">ライティング</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">AI活用</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="work-card">
+                    <div class="work-image">
+                        <img src="./images/FashonTOP.png" alt="架空サイト（Fashion）" loading="lazy">
+                        <div class="work-overlay">
+                            <a href="./work2.html" class="work-link">詳細を見る</a>
+                        </div>
+                    </div>
+                    <div class="work-content">
+                        <h3 class="work-title">架空サイト（Fashion）</h3>
+                        <p class="work-description">ファッションブランドのコンセプトサイト</p>
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">LP</span>
+                            <span class="tag">自主制作</span>
+                        </div>
+                    </div>
+                </article>
+
+
+                
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUTセクション -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About</h2>
+                <p class="section-subtitle">
+                    私について、スキル、経歴をご紹介します
+                </p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="./images/PROFI.png" alt="太田三一斗のプロフィール写真" class="profile-image">
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3 class="about-name">太田 三一斗</h3>
+                        <p class="about-title">Web Developer / Writer / English Editor</p>
+                        <p class="about-description">
+                            在宅でWeb制作・SEOライティング・英語教材の校閲などを行っています。HTML / CSS / JavaScript / PHP / React に対応し、WordPressによる構築・カスタムテンプレート制作・公開作業まで一貫して対応可能です。LP・コーポレートサイトの制作や改修も実務で取り組んでいます。
                         </p>
-                        <p>
-                            最新の技術トレンドを常に学び続け、AI活用による効率的な制作プロセスを取り入れながら、
-                            ユーザーにとって価値のあるWebサイトやコンテンツの制作に取り組んでいます。
+                        <div class="about-highlight">
+                            <p class="about-description" style="background: linear-gradient(90deg, #bbf7d0 0%, #f0fdf4 100%); border-left: 6px solid #22c55e; border-radius: 10px; padding: 1.2em 1em; margin: 1.2em 0; box-shadow: 0 2px 16px 0 rgba(34,197,94,0.08); font-weight: 600; color: #14532d;">
+                                <span style="font-size:1.15em; letter-spacing:0.05em; display:inline-block; margin-bottom:0.5em;">
+                                    <i class="fa-solid fa-star" style="color:#22c55e; margin-right:0.4em;"></i>
+                                    <strong>実績・自己PR</strong>
+                                </span><br>
+                                <span style="display:block; margin-bottom:0.3em;">・経営：純利益率 <span style="color:#16a34a; font-weight:bold;">7％ → 21％</span>事業売却</span>
+                                <span style="display:block; margin-bottom:0.3em;">・店長：<span style="color:#16a34a; font-weight:bold;">全国1,500店舗中1位 ×3回</span>表彰</span>
+                                <span style="display:block;">・副業：<span style="color:#16a34a; font-weight:bold;">EC取引 600件</span>／1年間</span>
+                            </p>
+                        </div>
+                        <p class="about-description">
+                            経営者としての判断力と、現場での実行力の両方を持ち、柔軟かつ主体的に取り組めます。在宅環境でもスムーズな連携が可能です。どうぞよろしくお願いいたします。
                         </p>
                     </div>
                     
-                    <!-- スキル -->
-                    <div class="about-skills">
-                        <h4>Skills</h4>
-                        <div class="skills-list">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">WordPress</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">AI活用</span>
-                            <span class="skill-tag">ライティング</span>
-                            <span class="skill-tag">英語校閲</span>
+                    <div class="skills-section">
+                        <h4 class="skills-title">Skills</h4>
+                        <div class="skills-grid">
+                            <div class="skill-category">
+                                <h5 class="skill-category-title">Frontend</h5>
+                                <ul class="skill-list">
+                                    <li>HTML5 / CSS3</li>
+                                    <li>JavaScript (ES6+)</li>
+                                    <li>React</li>
+                                    <li>SCSS / Sass</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h5 class="skill-category-title">CMS / Tools</h5>
+                                <ul class="skill-list">
+                                    <li>WordPress</li>
+                                    <li>Git / GitHub</li>
+                                    <li>Figma</li>
+                                    <li>AI(Manus/Cursor)</li>
+                                </ul>
+                            </div>
+                            <div class="skill-category">
+                                <h5 class="skill-category-title">Other</h5>
+                                <ul class="skill-list">
+                                    <li>SEO対策</li>
+                                    <li>ライティング</li>
+                                    <li>英語編集</li>
+                                    <li>プロジェクト管理</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     
-                    <!-- 経歴 -->
-                    <div class="about-experience timeline-experience">
-                      <h4>Experience</h4>
-                      <div class="timeline">
-                        <div class="timeline-item">
-                          <div class="timeline-date">2025年5月〜現在</div>
-                          <div class="timeline-content">
-                            <div class="timeline-title">フリーランス</div>
-                            <div class="timeline-desc">在宅でWeb制作・ライティング業務を本格化。</div>
-                          </div>
+                    <div class="timeline-section">
+                        <h4 class="timeline-title">Experience</h4>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">2025年5月〜現在</div>
+                                <div class="timeline-content">
+                                    <h5>フリーランス</h5>
+                                    <p>在宅でWeb制作・ライティング業務を本格化。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2024年3月〜2025年3月</div>
+                                <div class="timeline-content">
+                                    <h5>ぎふ就労支援センター（在宅業務）</h5>
+                                    <p>行政の「ワークダイバーシティ支援制度」を利用し、在宅業務を開始。介護と仕事の両立に取り組む。<br>2025年3月、制度利用を終了し、退社。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2018年4月〜2022年10月</div>
+                                <div class="timeline-content">
+                                    <h5>B-Rサーティワンアイスクリーム株式会社　FC</h5>
+                                    <p>店舗運営（オーナー業務、店舗経営、給与計算、外販交渉、職場体験受け入れ、学校へのプレゼン、店長業務、接客、スタッフ採用、シフト管理など多岐にわたる業務を経験）。<br>2022年10月、大手イオンの系列へ事業売却。</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">2014年4月〜2017年10月</div>
+                                <div class="timeline-content">
+                                    <h5>有限会社フラワーマウンテン</h5>
+                                    <p>古物の買取・値付け・販売、接客、ECサイト出品管理など幅広く担当。</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="timeline-item">
-                          <div class="timeline-date">2024年3月〜2025年3月</div>
-                          <div class="timeline-content">
-                            <div class="timeline-title">ぎふ就労支援センター（在宅業務）</div>
-                            <div class="timeline-desc">行政の「ワークダイバーシティ支援制度」を利用し、在宅業務を開始。介護と仕事の両立に取り組む。<br>2025年3月、制度利用を終了し、退社。</div>
-                          </div>
-                        </div>
-                        <div class="timeline-item">
-                          <div class="timeline-date">2018年4月〜2022年10月</div>
-                          <div class="timeline-content">
-                            <div class="timeline-title">B-Rサーティワンアイスクリーム株式会社（FCオーナー）</div>
-                            <div class="timeline-desc">店舗運営（オーナー業務、店舗経営、給与計算、外販交渉、職場体験受け入れ、学校へのプレゼン、店長業務、接客、スタッフ採用、シフト管理など多岐にわたる業務を経験）。<br>2022年10月、大手イオンの系列へ事業売却。</div>
-                          </div>
-                        </div>
-                        <!-- <div class="timeline-item">
-                          <div class="timeline-date">2017年10月〜2018年3月</div>
-                          <div class="timeline-content">
-                            <div class="timeline-title">家業継承</div>
-                            <div class="timeline-desc">父の危篤により退社し、家業を継承。</div>
-                          </div>
-                        </div> -->
-                        <div class="timeline-item">
-                          <div class="timeline-date">2014年4月〜2017年10月</div>
-                          <div class="timeline-content">
-                            <div class="timeline-title">有限会社フラワーマウンテン</div>
-                            <div class="timeline-desc">古物の買取・値付け・販売、接客、ECサイト出品管理など幅広く担当。</div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-
-
-    
-
-    <footer class="footer">
-        <p>&copy; 2025 Miito Ota. All rights reserved.</p>
-    </footer>
-
-
-
-
-    <!-- 右下のナビゲーションボタン -->
-    <div class="floating-nav">
-        <button class="floating-nav-toggle" id="floatingNavToggle">
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-        </button>
-        <div class="floating-nav-menu" id="floatingNavMenu">
-            <a href="#home" class="floating-nav-item">HOME</a>
-            <a href="#works" class="floating-nav-item">WORKS</a>
-            <a href="#about" class="floating-nav-item">ABOUT</a>
-        </div>
-    </div>
-
+    <div id="footer-include"></div>
     <script src="js/script.js"></script>
+    <div id="art-cursor"></div>
 </body>
 </html>
+

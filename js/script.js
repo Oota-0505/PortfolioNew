@@ -1,456 +1,455 @@
-console.log("script.js loaded");
-document.addEventListener('DOMContentLoaded', function() {
-  // ローディング画面の制御
-  const loadingScreen = document.getElementById('loading');
-  
-  // ページ読み込み完了後にローディング画面をフェードアウト
-  window.addEventListener('load', function() {
-      setTimeout(function() {
-          loadingScreen.classList.add('fade-out');
-          setTimeout(function() {
-              loadingScreen.style.display = 'none';
-          }, 500);
-      }, 1000); // 1秒間ローディングを表示
-  });
-
-  // フローティングナビゲーション
-  const floatingNavToggle = document.getElementById('floatingNavToggle');
-  const floatingNavMenu = document.getElementById('floatingNavMenu');
-
-  floatingNavToggle.addEventListener('click', function() {
-      this.classList.toggle('active');
-      floatingNavMenu.classList.toggle('active');
-  });
-
-  // メニュー外をクリックしたときにメニューを閉じる
-  document.addEventListener('click', function(event) {
-      if (!floatingNavToggle.contains(event.target) && !floatingNavMenu.contains(event.target)) {
-          floatingNavToggle.classList.remove('active');
-          floatingNavMenu.classList.remove('active');
-      }
-  });
-
-  // フローティングナビのリンクをクリックしたときにメニューを閉じる
-  document.querySelectorAll('.floating-nav-item').forEach(item => {
-      item.addEventListener('click', function() {
-          floatingNavToggle.classList.remove('active');
-          floatingNavMenu.classList.remove('active');
-      });
-  });
-
-  // スムーズスクロール
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-              target.scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-              });
-          }
-      });
-  });
-
-  // スクロールアニメーション
-  const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-          }
-      });
-  }, observerOptions);
-
-  // アニメーション対象の要素を監視
-  const animateElements = document.querySelectorAll('.detail-item, .project-image, .project-info');
-  animateElements.forEach(element => {
-      element.style.opacity = '0';
-      element.style.transform = 'translateY(30px)';
-      element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-      observer.observe(element);
-  });
+// ===== ローディング画面の非表示処理 =====
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 800); // 0.8秒後にローディング終了
+    }
 });
 
+// ===== 新デザインシステム JavaScript =====
 
-
-// Aboutセクション用のJavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Aboutセクションのアニメーション
-    const aboutSection = document.querySelector('.about-section');
-    const aboutContainer = document.querySelector('.about-container');
-    const profileImage = document.querySelector('.profile-image');
-    const aboutInfo = document.querySelector('.about-info');
-    
-    // Intersection Observer for About section animations
-    const aboutObserverOptions = {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const aboutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // コンテナのアニメーション
-                if (aboutContainer) {
-                    aboutContainer.classList.add('is-visible');
-                }
+    // ===== ナビゲーション =====
+    const navToggle = document.querySelector('.nav-toggle');
+    const navList = document.querySelector('.nav-list');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const header = document.querySelector('.header');
+
+    // モバイルメニューの開閉
+    if (navToggle) {
+        navToggle.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    }
+
+    // ナビゲーションリンクのクリック処理
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // index.html以外ではデフォルト遷移を許可
+            if (!location.pathname.endsWith('index.html') && !location.pathname.endsWith('/')) {
+                return; // 何もせず通常のリンク遷移
+            }
+            e.preventDefault();
+            
+            // アクティブクラスの更新
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            
+            // スムーズスクロール
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
                 
-                // プロフィール画像のアニメーション（少し遅延）
-                setTimeout(() => {
-                    if (profileImage) {
-                        profileImage.classList.add('is-visible');
-                    }
-                }, 200);
-                
-                // テキスト情報のアニメーション（さらに遅延）
-                setTimeout(() => {
-                    if (aboutInfo) {
-                        aboutInfo.classList.add('is-visible');
-                    }
-                }, 400);
-                
-                // スキルタグのアニメーション
-                const skillTags = document.querySelectorAll('.skill-tag');
-                skillTags.forEach((tag, index) => {
-                    setTimeout(() => {
-                        tag.style.opacity = '0';
-                        tag.style.transform = 'translateY(20px)';
-                        tag.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-                        
-                        setTimeout(() => {
-                            tag.style.opacity = '1';
-                            tag.style.transform = 'translateY(0)';
-                        }, 50);
-                    }, 600 + (index * 100));
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
-                
-                // 経歴アイテムのアニメーション
-                const experienceItems = document.querySelectorAll('.experience-item');
-                experienceItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.style.opacity = '0';
-                        item.style.transform = 'translateX(-20px)';
-                        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                        
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateX(0)';
-                        }, 50);
-                    }, 800 + (index * 200));
+            }
+            
+            // モバイルメニューを閉じる
+            if (navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        });
+    });
+
+    // ===== スクロール時のヘッダー処理 =====
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // ヘッダーの背景透明度調整
+        if (scrollTop > 50) {
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        } else {
+            header.style.background = 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = 'none';
+        }
+        
+        // アクティブセクションの検出
+        updateActiveNavigation();
+        
+        lastScrollTop = scrollTop;
+    });
+
+    // ===== アクティブナビゲーションの更新 =====
+    function updateActiveNavigation() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollPosition = window.scrollY + header.offsetHeight + 100;
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
                 });
             }
         });
-    }, aboutObserverOptions);
-    
-    // Aboutセクションを監視
-    if (aboutSection) {
-        aboutObserver.observe(aboutSection);
     }
+
+    // ===== スクロールアニメーション =====
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
+
+    // アニメーション対象要素の監視
+    const animateElements = document.querySelectorAll('.work-card, .about-content, .skills-section, .timeline-section');
+    animateElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // ===== ワークカードのホバーエフェクト強化 =====
+    const workCards = document.querySelectorAll('.work-card');
     
-    // スキルタグのホバーエフェクト強化
-    const skillTags = document.querySelectorAll('.skill-tag');
-    skillTags.forEach(tag => {
-        tag.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-3px) scale(1.05)';
+    workCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
         });
         
-        tag.addEventListener('mouseleave', function() {
+        card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
-    
-    // プロフィール画像のクリックイベント（オプション）
-    if (profileImage) {
-        profileImage.addEventListener('click', function() {
-            // 画像クリック時のエフェクト
-            this.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1)';
-            }, 150);
-        });
-    }
-});
 
+    // ===== スムーズスクロール（ヒーローセクションのボタン） =====
+    const heroButtons = document.querySelectorAll('.hero-actions .btn');
+    
+    heroButtons.forEach(button => {
+        if (button.getAttribute('href').startsWith('#')) {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    });
 
-
-// カスタムカーソルの実装
-document.addEventListener('DOMContentLoaded', function() {
-    // より厳密なタッチデバイス判定関数
-    function isTouchDevice() {
-        return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0));
-    }
-    // モバイルデバイスやタッチデバイスでは実行しない
-    if (window.innerWidth <= 768 || isTouchDevice()) {
-        return;
-    }
+    // ===== パフォーマンス最適化：画像の遅延読み込み =====
+    const images = document.querySelectorAll('img[loading="lazy"]');
     
-    // カスタムカーソル要素を作成
-    const customCursor = document.createElement('div');
-    customCursor.className = 'custom-cursor';
-    
-    const cursorDot = document.createElement('div');
-    cursorDot.className = 'cursor-dot';
-    
-    const cursorOutline = document.createElement('div');
-    cursorOutline.className = 'cursor-outline';
-    
-    customCursor.appendChild(cursorDot);
-    customCursor.appendChild(cursorOutline);
-    document.body.appendChild(customCursor);
-    
-    // カーソルの位置を追跡する変数
-    let mouseX = 0;
-    let mouseY = 0;
-    let dotX = 0;
-    let dotY = 0;
-    let outlineX = 0;
-    let outlineY = 0;
-    
-    // マウスの動きを追跡
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // カーソルの位置を更新する関数
-    function updateCursor() {
-        // ドットは即座に追従
-        dotX = mouseX;
-        dotY = mouseY;
-        
-        // アウトラインはさらに速く追従
-        outlineX += (mouseX - outlineX) * 0.6;
-        outlineY += (mouseY - outlineY) * 0.6;
-        
-        // 位置を適用
-        cursorDot.style.left = dotX + 'px';
-        cursorDot.style.top = dotY + 'px';
-        cursorOutline.style.left = outlineX + 'px';
-        cursorOutline.style.top = outlineY + 'px';
-        
-        requestAnimationFrame(updateCursor);
-    }
-    
-    // アニメーションを開始
-    updateCursor();
-    
-    // ホバー可能な要素を定義
-    const hoverElements = {
-        text: 'h1, h2, h3, h4, h5, h6, p, span, li, td, th, label',
-        link: 'a, button, [role="button"], .clickable',
-        button: 'button, input[type="submit"], input[type="button"], .btn'
-    };
-    
-    // テキスト要素のホバーイベント
-    document.querySelectorAll(hoverElements.text).forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            cursorDot.classList.add('text-hover');
-            cursorOutline.classList.add('text-hover');
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            cursorDot.classList.remove('text-hover');
-            cursorOutline.classList.remove('text-hover');
-        });
-    });
-    
-    // リンク要素のホバーイベント
-    document.querySelectorAll(hoverElements.link).forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            cursorDot.classList.add('link-hover');
-            cursorOutline.classList.add('link-hover');
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            cursorDot.classList.remove('link-hover');
-            cursorOutline.classList.remove('link-hover');
-        });
-    });
-    
-    // ボタン要素のホバーイベント
-    document.querySelectorAll(hoverElements.button).forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            cursorDot.classList.add('link-hover');
-            cursorOutline.classList.add('button-hover');
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            cursorDot.classList.remove('link-hover');
-            cursorOutline.classList.remove('button-hover');
-        });
-    });
-    
-    // クリックイベント
-    document.addEventListener('mousedown', function() {
-        cursorDot.classList.add('clicking');
-        cursorOutline.classList.add('clicking');
-    });
-    
-    document.addEventListener('mouseup', function() {
-        setTimeout(() => {
-            cursorDot.classList.remove('clicking');
-            cursorOutline.classList.remove('clicking');
-        }, 300);
-    });
-    
-    // マウスがページから離れた時の処理
-    document.addEventListener('mouseleave', function() {
-        customCursor.classList.add('inactive');
-    });
-    
-    document.addEventListener('mouseenter', function() {
-        customCursor.classList.remove('inactive');
-    });
-    
-    // 動的に追加される要素にもイベントを適用する関数
-    function attachCursorEvents(container = document) {
-        // テキスト要素
-        container.querySelectorAll(hoverElements.text).forEach(element => {
-            if (!element.hasAttribute('data-cursor-attached')) {
-                element.setAttribute('data-cursor-attached', 'true');
-                
-                element.addEventListener('mouseenter', function() {
-                    cursorDot.classList.add('text-hover');
-                    cursorOutline.classList.add('text-hover');
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    cursorDot.classList.remove('text-hover');
-                    cursorOutline.classList.remove('text-hover');
-                });
-            }
-        });
-        
-        // リンク要素
-        container.querySelectorAll(hoverElements.link).forEach(element => {
-            if (!element.hasAttribute('data-cursor-attached')) {
-                element.setAttribute('data-cursor-attached', 'true');
-                
-                element.addEventListener('mouseenter', function() {
-                    cursorDot.classList.add('link-hover');
-                    cursorOutline.classList.add('link-hover');
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    cursorDot.classList.remove('link-hover');
-                    cursorOutline.classList.remove('link-hover');
-                });
-            }
-        });
-        
-        // ボタン要素
-        container.querySelectorAll(hoverElements.button).forEach(element => {
-            if (!element.hasAttribute('data-cursor-attached')) {
-                element.setAttribute('data-cursor-attached', 'true');
-                
-                element.addEventListener('mouseenter', function() {
-                    cursorDot.classList.add('link-hover');
-                    cursorOutline.classList.add('button-hover');
-                });
-                
-                element.addEventListener('mouseleave', function() {
-                    cursorDot.classList.remove('link-hover');
-                    cursorOutline.classList.remove('button-hover');
-                });
-            }
-        });
-    }
-    
-    // MutationObserverで動的に追加される要素を監視
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            mutation.addedNodes.forEach(function(node) {
-                if (node.nodeType === 1) { // Element node
-                    attachCursorEvents(node);
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.src; // 画像の読み込みをトリガー
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
                 }
             });
         });
-    });
-    
-    // DOM変更の監視を開始
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-    
-    // 初期化時に既存の要素にイベントを適用
-    attachCursorEvents();
-    
-    // ウィンドウのリサイズ時にモバイル判定を再実行
-    window.addEventListener('resize', function() {
-        if (window.innerWidth <= 768) {
-            customCursor.style.display = 'none';
-        } else {
-            customCursor.style.display = 'block';
+        
+        images.forEach(img => imageObserver.observe(img));
+    }
+
+    // ===== キーボードナビゲーション対応 =====
+    document.addEventListener('keydown', function(e) {
+        // Escキーでモバイルメニューを閉じる
+        if (e.key === 'Escape' && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            navToggle.classList.remove('active');
         }
     });
+
+    // ===== フォーカス管理 =====
+    const focusableElements = document.querySelectorAll(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    focusableElements.forEach(element => {
+        element.addEventListener('focus', function() {
+            this.classList.add('focus-visible');
+        });
+        
+        element.addEventListener('blur', function() {
+            this.classList.remove('focus-visible');
+        });
+    });
+
+    // ===== レスポンシブ対応：ウィンドウリサイズ処理 =====
+    let resizeTimer;
+    
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            // ウィンドウサイズが変更された時の処理
+            if (window.innerWidth > 768 && navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        }, 250);
+    });
+
+    // ===== 初期化完了ログ =====
+    console.log('Portfolio site initialized successfully!');
 });
 
+// Heroセクションのアニメーションをページロード時にトリガー
+window.addEventListener('DOMContentLoaded', () => {
+  // すでにCSSアニメーションが遅延付きで設定されているため、
+  // JSでの追加制御は不要ですが、
+  // もしスクロール時やインタラクションで追加アニメーションをしたい場合はここに記述
+});
 
-// Heroセクション バブルアニメーション
-(function() {
-  const canvas = document.getElementById('hero-bubbles');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let dpr = window.devicePixelRatio || 1;
-  let width = 0, height = 0;
-  function resize() {
-    width = window.innerWidth;
-    height = document.querySelector('.hero-section').offsetHeight;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
-    ctx.setTransform(1,0,0,1,0,0);
-    ctx.scale(dpr, dpr);
+// ===== Other Works（全workページ共通）自動生成 =====
+const workList = [
+  {
+    id: 'work.html',
+    title: 'ぎふ就労支援センター様 ホームページリニューアル',
+    desc: 'WordPressを活用したレスポンシブWebサイトの制作',
+    img: './images/Screenshot 2025-05-07 at 17.59.08.png',
+    link: './work.html',
+  },
+  {
+    id: 'work2.html',
+    title: '架空サイト（Fashion）',
+    desc: 'ファッションブランドのコンセプトサイト',
+    img: './images/FashonTOP.png',
+    link: './work2.html',
+  },
+  {
+    id: 'work3.html',
+    title: 'MISSIONA様 LP制作',
+    desc: 'コンバージョンを重視したランディングページ',
+    img: './images/MPC.png',
+    link: './work3.html',
+  },
+  {
+    id: 'work4.html',
+    title: 'コンサル系ブログ リニューアル',
+    desc: 'ユーザビリティを重視したブログサイトの改善',
+    img: './images/HIROMOZA.png',
+    link: './work4.html',
+  },
+  {
+    id: 'work5.html',
+    title: 'Coffee コーポレートサイト',
+    desc: 'Reactを使用したモダンなコーポレートサイト',
+    img: './images/Screenshot 2025-07-13 at 8.58.05.png',
+    link: './work5.html',
+  },
+  {
+    id: 'work6.html',
+    title: '岐阜県ナビ Blog運営',
+    desc: '地域情報発信のためのブログサイト運営',
+    img: './images/Navi.png',
+    link: './work6.html',
+  },
+  {
+    id: 'work7.html',
+    title: 'WPカスタムテンプレート作成',
+    desc: 'WordPressカスタムテーマ制作の基礎学習',
+    img: './images/Custom.png',
+    link: './work7.html',
+  },
+];
+
+function renderOtherWorksSlider(currentId) {
+  const sliderGrid = document.querySelector('.related-works-grid');
+  if (!sliderGrid) return;
+  sliderGrid.innerHTML = '';
+  workList.filter(w => w.id !== currentId).forEach(work => {
+    const card = document.createElement('article');
+    card.className = 'work-card';
+    card.innerHTML = `
+      <div class="work-image">
+        <img src="${work.img}" alt="${work.title}" loading="lazy">
+        <div class="work-overlay">
+          <a href="${work.link}" class="work-link">詳細を見る</a>
+        </div>
+      </div>
+      <div class="work-content">
+        <h3 class="work-title">${work.title}</h3>
+        <p class="work-description">${work.desc}</p>
+      </div>
+    `;
+    sliderGrid.appendChild(card);
+  });
+}
+
+// ページごとにOther Worksを自動生成
+const pageName = location.pathname.split('/').pop();
+if (document.querySelector('.related-works-grid')) {
+  renderOtherWorksSlider(pageName);
+}
+
+// ===== Other Worksスライダー自動送り（2件ずつ） =====
+function setupAutoOtherWorksSlider() {
+  const slider = document.querySelector('.related-works-grid');
+  if (!slider) return;
+  const cards = slider.querySelectorAll('.work-card');
+  if (cards.length <= 1) return;
+  let currentIndex = 0;
+  function getVisibleCount() {
+    return window.innerWidth <= 900 ? 1 : 2;
   }
-  resize();
-  window.addEventListener('resize', resize);
-
-  // バブル生成
-  const BUBBLE_COUNT = 20;
-  const bubbleColors = [
-    'rgba(0,180,255,0.10)',
-    'rgba(0,120,200,0.13)',
-    'rgba(40,80,180,0.09)',
-    'rgba(80,180,255,0.08)'
-  ];
-  const bubbles = [];
-  for (let i = 0; i < BUBBLE_COUNT; i++) {
-    bubbles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      r: 24 + Math.random() * 32,
-      speed: 0.3 + Math.random() * 0.7,
-      dx: (Math.random() - 0.5) * 0.5,
-      color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)]
-    });
+  function slideTo(index) {
+    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(slider).gap) || 0;
+    slider.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
   }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (const b of bubbles) {
-      ctx.beginPath();
-      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
-      ctx.fillStyle = b.color;
-      ctx.fill();
-      b.y -= b.speed;
-      b.x += b.dx;
-      if (b.y + b.r < 0) {
-        b.y = height + b.r;
-        b.x = Math.random() * width;
-      }
-      if (b.x < -b.r) b.x = width + b.r;
-      if (b.x > width + b.r) b.x = -b.r;
+  setInterval(() => {
+    const visibleCount = getVisibleCount();
+    currentIndex += visibleCount;
+    if (currentIndex >= cards.length) {
+      currentIndex = 0;
     }
-    requestAnimationFrame(animate);
+    slideTo(currentIndex);
+  }, 3000);
+}
+if (document.querySelector('.related-works-grid')) {
+  setupAutoOtherWorksSlider();
+}
+
+// ===== アートカーソル追従 =====
+function setupArtCursor() {
+  // 既存のart-cursorをすべて削除
+  document.querySelectorAll('#art-cursor').forEach(el => el.remove());
+  // 新規生成
+  const artCursor = document.createElement('div');
+  artCursor.id = 'art-cursor';
+  document.body.appendChild(artCursor);
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.18;
+    cursorY += (mouseY - cursorY) * 0.18;
+    artCursor.style.transform = `translate3d(${cursorX - 22}px, ${cursorY - 22}px, 0)`;
+    requestAnimationFrame(animateCursor);
   }
-  animate();
-})();
+  animateCursor();
+}
+setupArtCursor();
+
+// ===== 共通パーツ（ローディング・フッター）自動挿入 =====
+function includeCommonParts() {
+    return Promise.all([
+        fetch('loading.html')
+            .then(res => res.text())
+            .then(html => {
+                const loadingDiv = document.getElementById('loading');
+                if (loadingDiv) {
+                    loadingDiv.outerHTML = html;
+                } else {
+                    document.body.insertAdjacentHTML('afterbegin', html);
+                }
+            }),
+        fetch('footer.html')
+            .then(res => res.text())
+            .then(html => {
+                const footer = document.querySelector('footer.footer');
+                if (footer) {
+                    footer.outerHTML = html;
+                } else {
+                    document.body.insertAdjacentHTML('beforeend', html);
+                }
+            })
+    ]);
+}
+
+// 共通パーツ挿入後に初期化処理を再実行
+includeCommonParts().then(() => {
+    // ===== ローディング画面の初期化 =====
+    const loadingScreen = document.getElementById('loading');
+    if (loadingScreen) {
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+    }
+    // ===== 既存の初期化処理（必要に応じて再実行） =====
+    // ここに必要な初期化処理を追加
+    setupArtCursor(); // フッター挿入後にも再実行
+});
+
+// ===== ユーティリティ関数 =====
+
+// スムーズスクロール関数
+function smoothScrollTo(targetPosition, duration = 800) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    let startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const run = ease(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function ease(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+
+// デバウンス関数
+function debounce(func, wait, immediate) {
+    let timeout;
+    return function executedFunction() {
+        const context = this;
+        const args = arguments;
+        const later = function() {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        const callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
+}
 

@@ -3,253 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品詳細 - 就労継続ナビ様 Blog記事</title>
+    <title>就労継続ナビ様 Blog記事 | 太田三一斗 Portfolio</title>
+    <meta name="description" content="就労継続ナビ様 Blog記事の詳細をご紹介します。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/work.css">
+    <link rel="icon" href="images/icons8-calla-lily-64 (1).png" type="image/png">
 </head>
 <body>
-   <!-- ローディング画面 -->
-   <div id="loading" class="loading-screen">
-    <div class="loading-content">
-        <div class="loading-animation">            
-            <div class="loading-wave">
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
+    <!-- ローディング画面 -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-animation">            
+                <div class="loading-wave">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
             </div>
+            <p class="loading-text">Loading Portfolio...</p>
         </div>
-        <p class="loading-text">Loading Portfolio...</p>
     </div>
-</div>
+
+    <!-- ヘッダーナビゲーション -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">Mihto Oota</a>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#works" class="nav-link active">Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+            </ul>
+            <button class="nav-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="index.html#works" class="breadcrumb-link">Works</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    就労継続ナビ様 Blog記事
+                </li>
+            </ol>
+        </div>
+    </nav>
 
     <!-- メインコンテンツ -->
-    <main class="main-content">
-        <!-- ヘッダーセクション -->
-        <header class="page-header">
-            <h1 class="page-title">WORKS</h1>
-            <div class="title-divider"></div>
-        </header>
-
-        <!-- プロジェクト情報セクション -->
-        <section class="project-info">
-            <h2 class="project-title">就労継続ナビ様 Blog記事</h2>
-            <div class="project-tags">
-                <span class="tag tag-outline"># ライティング</span>
-                <span class="tag tag-filled"># SEO</span>
-            </div>
-            <div class="project-url">
-                <span class="url-label">代表記事</span>
-                <a href="https://shuro-shien.or.jp/navi/friends/" class="url-link" target="_blank">発達障害 友達が離れていく</a>
+    <main class="work-detail">
+        <!-- プロジェクトヘッダー -->
+        <section class="work-hero">
+            <div class="container">
+                <div class="work-hero-content">
+                    <h1 class="work-title">就労継続ナビ様 Blog記事</h1>
+                    <p class="work-subtitle">SEO・AI活用による記事制作と運用</p>
+                    <div class="work-meta">
+                        <div class="work-tags">
+                            <span class="tag">ライティング</span>
+                            <span class="tag">SEO</span>
+                            <span class="tag">AI活用</span>
+                        </div>
+                        <div class="work-url">
+                            <a href="https://shuro-shien.or.jp/navi/friends/" class="btn btn-outline" target="_blank" rel="noopener">
+                                代表記事を見る
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- メイン画像セクション -->
-        <section class="project-image">
-            <div class="mockup-container">
-                <div class="desktop-mockup">
-                    <img src="./images/Navi.png" alt="デスクトップ表示">
+        <!-- プロジェクト画像 -->
+        <section class="work-image-section">
+            <div class="container">
+                <div class="work-image-container">
+                    <img src="./images/Navi.png" alt="就労継続ナビ様 Blog記事" class="work-main-image">
                 </div>
-                <!-- <div class="mobile-mockup">
-                    <img src="https://via.placeholder.com/300x600/1976D2/FFFFFF?text=Shuro+Navi+Blog+Mobile" alt="モバイル表示">
-                </div> -->
             </div>
         </section>
 
-        <!-- 詳細情報セクション -->
-        <section class="project-details">
-            <div class="detail-item">
-                <h3 class="detail-title">概要</h3>
-                <p class="detail-content">
-                    就労継続ナビ様へ投稿するブログ記事を担当させていただきました。記事構成はAI（ChatGPT）でたたき台を作成し、内容チェックや文の校正にもAIを活用。そのうえで自分自身でリライトを行い、読みやすさと信頼性を意識して最終調整しました。
-                </p>
-            </div>
-            <div class="detail-item">
-                <h3 class="detail-title">執筆・編集フロー</h3>
-                <p class="detail-content">
-                    1. ChatGPTで記事構成・下書きを作成<br>
-                    2. AIによる内容チェック・校正<br>
-                    3. 自分自身でリライトし、読みやすさ・信頼性を担保<br>
-                    4. クライアントチェック後、公開
-                </p>
-            </div>
-            <div class="detail-item">
-                <h3 class="detail-title">SEO施策</h3>
-                <p class="detail-content">
-                    ラッコキーワード等を活用し、上位検索記事を分析。見出しやディスクリプションには、キャッチーかつ検索意図に沿ったキーワードを選定しました。
-                </p>
-            </div>
-            <div class="detail-item">
-                <h3 class="detail-title">成果</h3>
-                <p class="detail-content">
-                    過去1ヶ月のアナリティクスで、担当記事が全300記事中、上位100以内に複数ランクイン。
-                </p>
-                <div class="ranking-cards">
-                    <div class="ranking-card ranking-top">
-                        <div class="ranking-number">10位</div>
-                        <div class="ranking-content">
-                            <h4 class="ranking-title">発達障害 友達が離れていく</h4>
-                            <a href="https://shuro-shien.or.jp/navi/friends/" target="_blank" class="ranking-link">記事を読む →</a>
+        <!-- プロジェクト詳細 -->
+        <section class="work-content">
+            <div class="container">
+                <div class="work-content-grid">
+                    <!-- メインコンテンツ -->
+                    <div class="work-main-content">
+                        <div class="content-section">
+                            <h2 class="content-title">概要</h2>
+                            <p class="content-text">
+                                就労継続ナビ様へ投稿するブログ記事を担当させていただきました。記事構成はAI（ChatGPT）でたたき台を作成し、内容チェックや文の校正にもAIを活用。そのうえで自分自身でリライトを行い、読みやすさと信頼性を意識して最終調整しました。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">執筆・編集フロー</h2>
+                            <ul class="content-list">
+                                <li>ChatGPTで記事構成・下書きを作成</li>
+                                <li>AIによる内容チェック・校正</li>
+                                <li>自分自身でリライトし、読みやすさ・信頼性を担保</li>
+                                <li>クライアントチェック後、公開</li>
+                            </ul>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">SEO施策</h2>
+                            <p class="content-text">
+                                ラッコキーワード等を活用し、上位検索記事を分析。見出しやディスクリプションには、キャッチーかつ検索意図に沿ったキーワードを選定しました。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">成果</h2>
+                            <p class="content-text">
+                                過去1ヶ月のアナリティクスで、担当記事が全体300記事中、上位100以内に複数ランクイン。
+                            </p>
+                            <div class="ranking-cards">
+                                <div class="ranking-card ranking-top" style="border-left: 6px solid #22c55e; background: linear-gradient(90deg, #bbf7d0 0%, #f0fdf4 100%); box-shadow: 0 2px 16px 0 rgba(34,197,94,0.08); border-radius: 12px;">
+                                    <div class="ranking-number" style="color: #166534; font-weight: bold;">10位</div>
+                                    <div class="ranking-content">
+                                        <h4 class="ranking-title" style="color: #14532d;">発達障害 友達が離れていく</h4>
+                                        <a href="https://shuro-shien.or.jp/navi/friends/" target="_blank" class="ranking-link" style="display:inline-block; padding:0.5em 1.6em; border-radius:2em; font-size:1.05em; font-weight:600; background: linear-gradient(90deg, #14532d 0%, #166534 100%); color:#fff; border:2px solid #14532d; text-shadow:0 1px 4px rgba(20,83,45,0.12); box-shadow:0 2px 12px 0 rgba(34,197,94,0.10); transition:background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s; text-decoration:none;">記事を読む</a>
+                                    </div>
+                                </div>
+                                <div class="ranking-card" style="border-left: 4px solid #4ade80; background: #f0fdf4; border-radius: 10px;">
+                                    <div class="ranking-number" style="color: #16a34a; font-weight: bold;">38位</div>
+                                    <div class="ranking-content">
+                                        <h4 class="ranking-title" style="color: #166534;">会話のキャッチボール</h4>
+                                        <a href="https://shuro-shien.or.jp/navi/catching-conversation/" target="_blank" class="ranking-link" style="display:inline-block; padding:0.5em 1.6em; border-radius:2em; font-size:1.05em; font-weight:600; background: linear-gradient(90deg, #14532d 0%, #166534 100%); color:#fff; border:2px solid #14532d; text-shadow:0 1px 4px rgba(20,83,45,0.10); box-shadow:0 2px 8px 0 rgba(34,197,94,0.08); transition:background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s; text-decoration:none;">記事を読む</a>
+                                    </div>
+                                </div>
+                                <div class="ranking-card" style="border-left: 4px solid #bbf7d0; background: #f0fdf4; border-radius: 10px;">
+                                    <div class="ranking-number" style="color: #22c55e; font-weight: bold;">60位</div>
+                                    <div class="ranking-content">
+                                        <h4 class="ranking-title" style="color: #166534;">ADHD 読書</h4>
+                                        <a href="https://shuro-shien.or.jp/navi/adhd-reading/" target="_blank" class="ranking-link" style="display:inline-block; padding:0.5em 1.6em; border-radius:2em; font-size:1.05em; font-weight:600; background: linear-gradient(90deg, #14532d 0%, #166534 100%); color:#fff; border:2px solid #14532d; text-shadow:0 1px 4px rgba(20,83,45,0.10); box-shadow:0 2px 8px 0 rgba(34,197,94,0.08); transition:background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s; text-decoration:none;">記事を読む</a>
+                                    </div>
+                                </div>
+                                <div class="ranking-card" style="border-left: 4px solid #bbf7d0; background: #f6fff8; border-radius: 10px;">
+                                    <div class="ranking-number" style="color: #b9fbc0; font-weight: bold;">-</div>
+                                    <div class="ranking-content">
+                                        <h4 class="ranking-title" style="color: #166534;">LDの特徴</h4>
+                                        <a href="https://shuro-shien.or.jp/navi/ld-support/" target="_blank" class="ranking-link" style="display:inline-block; padding:0.5em 1.6em; border-radius:2em; font-size:1.05em; font-weight:600; background: linear-gradient(90deg, #14532d 0%, #166534 100%); color:#fff; border:2px solid #14532d; text-shadow:0 1px 4px rgba(20,83,45,0.08); box-shadow:0 2px 8px 0 rgba(34,197,94,0.06); transition:background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s; text-decoration:none;">記事を読む</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="content-text ranking-summary">
+                                いずれも多くの読者に支持されています。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">担当範囲</h2>
+                            <ul class="content-list">
+                                <li>記事構成案作成</li>
+                                <li>AIによる下書き・校正</li>
+                                <li>リライト・最終調整</li>
+                                <li>SEOキーワード選定</li>
+                                <li>クライアントとのやり取り・納品</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="ranking-card">
-                        <div class="ranking-number">38位</div>
-                        <div class="ranking-content">
-                            <h4 class="ranking-title">発達障害 会話のキャッチボール</h4>
-                            <a href="https://shuro-shien.or.jp/navi/catching-conversation/" target="_blank" class="ranking-link">記事を読む →</a>
+                    <!-- サイドバー -->
+                    <aside class="work-sidebar">
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">プロジェクト情報</h3>
+                            <dl class="project-details">
+                                <dt>クライアント</dt>
+                                <dd>就労継続ナビ様</dd>
+                                <dt>期間</dt>
+                                <dd>2024年5月</dd>
+                                <dt>役割</dt>
+                                <dd>記事執筆・編集・SEO</dd>
+                                <dt>使用技術</dt>
+                                <dd>WordPress, ChatGPT, SEOツール</dd>
+                            </dl>
                         </div>
-                    </div>
-                    <div class="ranking-card">
-                        <div class="ranking-number">60位</div>
-                        <div class="ranking-content">
-                            <h4 class="ranking-title">ADHD 読書</h4>
-                            <a href="https://shuro-shien.or.jp/navi/adhd-reading/" target="_blank" class="ranking-link">記事を読む →</a>
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">関連リンク</h3>
+                            <div class="related-links">
+                                <a href="https://shuro-shien.or.jp/navi/friends/" class="related-link" target="_blank" rel="noopener">
+                                    代表記事
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="ranking-card">
-                        <div class="ranking-number">-</div>
-                        <div class="ranking-content">
-                            <h4 class="ranking-title">学習障がい　LDの特徴</h4>
-                            <a href="https://shuro-shien.or.jp/navi/ld-support/" target="_blank" class="ranking-link">記事を読む →</a>
-                        </div>
-                    </div>
+                    </aside>
                 </div>
-                <p class="detail-content ranking-summary">
-                    いずれも多くの読者に支持されています。
-                </p>
-            </div>
-            <div class="detail-item">
-                <h3 class="detail-title">担当範囲</h3>
-                <p class="detail-content">
-                    ・記事構成案作成<br>
-                    ・AIによる下書き・校正<br>
-                    ・リライト・最終調整<br>
-                    ・SEOキーワード選定<br>
-                    ・クライアントとのやり取り・納品
-                </p>
             </div>
         </section>
 
-        <!-- ALL WORKSセクション -->
-        <section class="all-works-section">
-            <h2 class="all-works-title">ALL WORKS</h2>
-            <div class="all-works-divider"></div>
-            <div class="all-works-grid">
-                <!-- 作品1 -->
-                <div class="all-works-item">
-                    <a href="work.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/Screenshot 2025-05-07 at 17.59.08.png" alt="ぎふ就労支援センター様 ホームページリニューアル">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">ぎふ就労支援センター様 ホームページリニューアル</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># Web制作</span>
-                                <span class="all-works-tag tag-filled"># WordPress</span>
-                            </div>
-                        </div>
-                    </a>
+        <!-- 他の作品 -->
+        <section class="related-works">
+            <div class="container">
+                <h2 class="section-title">Other Works</h2>
+                <div class="slider-container">
+                    <div class="related-works-grid"></div>
                 </div>
-                <!-- 作品2 -->
-                <div class="all-works-item">
-                    <a href="work5.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/Screenshot 2025-07-13 at 8.58.05.png" alt="React学習　Coffee コーポレート">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">React学習　Coffee コーポレート</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># AI活用</span>
-                                <span class="all-works-tag tag-filled"># WordPress</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 作品3 -->
-                <div class="all-works-item">
-                    <a href="work3.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/MissionaTop.png" alt="MISSIONA様 LP制作">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">MISSIONA様 LP制作</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># LP制作</span>
-                                <span class="all-works-tag tag-filled"># クライアントワーク</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 作品4 -->
-                <div class="all-works-item">
-                    <a href="work4.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/HIROMOZA.png" alt="コンサル系ブログ リニューアル">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">コンサル系ブログ リニューアル</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># ブログリニューアル</span>
-                                <span class="all-works-tag tag-filled"># クラウドワークス案件</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 作品5 -->
-                <div class="all-works-item">
-                    <a href="work2.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/FashonTOP.png" alt="架空サイト (Fashion)">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">架空サイト (Fashion)</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># Web制作</span>
-                                <span class="all-works-tag tag-filled"># LP</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <!-- 作品6 -->
-                <div class="all-works-item">
-                    <a href="work6.html" class="all-works-link">
-                        <div class="all-works-image">
-                            <img src="./images/Navi.png" alt="就労継続ナビ様 Blog記事">
-                        </div>
-                        <div class="all-works-content">
-                            <h3 class="all-works-item-title">就労継続ナビ様 Blog記事</h3>
-                            <div class="all-works-tags">
-                                <span class="all-works-tag tag-outline"># ライティング</span>
-                                <span class="all-works-tag tag-filled"># SEO</span>
-                            </div>
-                        </div>
-                    </a>
+                <div class="back-to-works">
+                    <a href="index.html#works" class="btn btn-primary">全ての作品を見る</a>
                 </div>
             </div>
         </section>
     </main>
-
-    <!-- フッター -->
-    <footer class="footer">
-        <p>&copy; 2025 Miito Ota. All rights reserved.</p>
-    </footer>
-
-    <!-- フローティングナビゲーション -->
-    <div class="floating-nav">
-        <button class="floating-nav-toggle" id="floatingNavToggle">
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-        </button>
-        <div class="floating-nav-menu" id="floatingNavMenu">
-            <a href="index.html" class="floating-nav-item">HOME</a>
-            <a href="index.html#works" class="floating-nav-item">WORKS</a>
-            <a href="index.html#about" class="floating-nav-item">ABOUT</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+<div id="footer-include"></div>
+<!-- JavaScript -->
+<script src="js/script.js"></script>
 </body>
 </html> 

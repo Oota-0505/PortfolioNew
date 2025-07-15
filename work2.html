@@ -3,231 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品詳細 - 架空サイト (Fashion)</title>
+    <title>架空サイト (Fashion) | 太田三一斗 Portfolio</title>
+    <meta name="description" content="架空サイト（Fashion）の詳細をご紹介します。">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="css/reset/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/work.css">
+    <link rel="icon" href="images/icons8-calla-lily-64 (1).png" type="image/png">
 </head>
 <body>
-   <!-- ローディング画面 -->
-   <div id="loading" class="loading-screen">
-    <div class="loading-content">
-        <div class="loading-animation">            
-            <div class="loading-wave">
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
+    <!-- ローディング画面 -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-animation">            
+                <div class="loading-wave">
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                </div>
             </div>
+            <p class="loading-text">Loading Portfolio...</p>
         </div>
-        <p class="loading-text">Loading Portfolio...</p>
     </div>
-</div>
 
+    <!-- ヘッダーナビゲーション -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">Mihto Oota</a>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#works" class="nav-link active">Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+            </ul>
+            <button class="nav-toggle" aria-label="メニューを開く">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- パンくずリスト -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="index.html" class="breadcrumb-link">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="index.html#works" class="breadcrumb-link">Works</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    架空サイト (Fashion)
+                </li>
+            </ol>
+        </div>
+    </nav>
 
     <!-- メインコンテンツ -->
-    <main class="main-content">
-        <!-- ヘッダーセクション -->
-        <header class="page-header">
-            <h1 class="page-title">WORKS</h1>
-            <div class="title-divider"></div>
-        </header>
-
-        <!-- プロジェクト情報セクション -->
-        <section class="project-info">
-            <h2 class="project-title"> 架空サイト　Fashion</h2>
-            <div class="project-tags">
-                <span class="tag tag-outline"># WEBサイト</span>
-                <span class="tag tag-filled"># クライアントワーク</span>
-            </div>
-            <div class="project-url">
-                <span class="url-label">URL</span>
-                <a href="" class="url-link"></a>
-            </div>
-        </section>
-
-        <!-- メイン画像セクション -->
-        <section class="project-image">
-            <div class="mockup-container">
-                <div class="desktop-mockup">
-                    <img src="./images/FashionPc.png" alt="デスクトップ表示">
-                </div>
-                <div class="mobile-mockup">
-                    <img src="./images/FashionSp.png" alt="モバイル表示">
+    <main class="work-detail">
+        <!-- プロジェクトヘッダー -->
+        <section class="work-hero">
+            <div class="container">
+                <div class="work-hero-content">
+                    <h1 class="work-title">架空サイト (Fashion)</h1>
+                    <p class="work-subtitle">JavaScript学習用の1ページ構成サイト</p>
+                    <div class="work-meta">
+                        <div class="work-tags">
+                            <span class="tag">Web制作</span>
+                            <span class="tag">自主制作</span>
+                        </div>
+                        <div class="work-url">
+                            <!-- URLがない場合は空欄 -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 詳細情報セクション -->
-        <section class="project-details">
-            <div class="detail-item">
-                <h3 class="detail-title">概要</h3>
-                <p class="detail-content">
-                  JavaScriptの学習用に、参考書をもとに1ページ構成のサイトを制作しました。<br>
-HPリニューアル時に使用される**カスタムページデザイン**の構成や演出方法を実践的に学ぶ目的で取り組みました。
-                </p>
-            </div>
-
-            <div class="detail-item">
-                <h3 class="detail-title">目的</h3>
-                <p class="detail-content">
-                    既存サイトの課題であった情報の見つけにくさを解決し、就労支援サービスについて詳しく知りたい方や、実際にサービスを利用したい方にとって分かりやすいサイト構成を実現することを目的としました。
-                </p>
-            </div>
-
-            <div class="detail-item">
-                <h3 class="detail-title">ターゲット</h3>
-                <p class="detail-content">
-                  20〜30代女性のカジュアルファッションに関心のある層
-                </p>
-            </div>
-
-            <div class="detail-item">
-                <h3 class="detail-title">情報設計</h3>
-                <p class="detail-content">
-                    クライアント様の要望で、情報はシンプルにできるだけ分かりやすくしたいとのことだったので、各サービス情報や過去の実績、アクセス情報は見やすさ・伝わりやすさを重視して設計しました。紹介ページとギャラリーページではシンプルさを保ちつつも、既存のファンの方も含め全ての方が楽しめるような要素を取り入れました。スマホからの閲覧が多いことを想定し、スマホサイズではコンテンツの見える領域を広くするため下にスクロールした際にヘッダーが隠れるような実装をしています。
-                </p>
-            </div>
-
-            <div class="detail-item">
-                <h3 class="detail-title">デザイン</h3>
-                <p class="detail-content">
-                  ローディング画面やメニューアニメーションなどの演出を配置しました。
-                </p>
-            </div>
-
-            <div class="detail-item">
-                <h3 class="detail-title">配色</h3>
-                <p class="detail-content">
-                    
-                </p>
+        <!-- プロジェクト画像 -->
+        <section class="work-image-section">
+            <div class="container">
+                <div class="work-image-row" style="display: flex; gap: 32px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+                    <div class="work-image-container" style="flex: 1 1 300px; max-width: 48%;">
+                        <img src="./images/FashionPc.png" alt="架空サイト (Fashion)" class="work-main-image" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    </div>
+                    <div class="work-image-container" style="flex: 1 1 200px; max-width: 48%;">
+                        <img src="./images/FashionSp.png" alt="架空サイト (Fashion)" class="work-main-image" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    </div>
+                </div>
             </div>
         </section>
 
-                        
-    
-
-
-     <!-- ALL WORKSセクション -->
-     <section class="all-works-section">
-        <h2 class="all-works-title">ALL WORKS</h2>
-        <div class="all-works-divider"></div>
-        <div class="all-works-grid">
-            <!-- 作品1 -->
-            <div class="all-works-item">
-                <a href="work.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/Screenshot 2025-05-07 at 17.59.08.png" alt="ぎふ就労支援センター様 ホームページリニューアル">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">ぎふ就労支援センター様 ホームページリニューアル</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># Web制作</span>
-                            <span class="all-works-tag tag-filled"># WordPress</span>
+        <!-- プロジェクト詳細 -->
+        <section class="work-content">
+            <div class="container">
+                <div class="work-content-grid">
+                    <!-- メインコンテンツ -->
+                    <div class="work-main-content">
+                        <div class="content-section">
+                            <h2 class="content-title">概要</h2>
+                            <p class="content-text">
+                                JavaScriptの学習用に、参考書をもとに1ページ構成のサイトを制作しました。<br>
+                                HPリニューアル時に使われる<strong>カスタムページデザイン</strong>の構成や演出方法を実践的に学ぶ目的で取り組みました。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">目的</h2>
+                            <p class="content-text">
+                                既存サイトの課題であった情報の見つけにくさを解決し、就労支援サービスについて詳しく知りたい方や、実際にサービスを利用したい方にとって分かりやすいサイト構成を実現することを目的としました。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">ターゲット</h2>
+                            <ul class="content-list">
+                                <li>20〜30代女性のカジュアルファッションに関心のある層</li>
+                            </ul>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">情報設計</h2>
+                            <p class="content-text">
+                                クライアント様の要望で、情報はシンプルにできるだけ分かりやすくしたいとのことだったので、各サービス情報や過去の実績、アクセス情報は見やすさ・伝わりやすさを重視して設計しました。スマホからの閲覧が多いことを想定し、スマホサイズではコンテンツの見える領域を広くするため下にスクロールした際にヘッダーが隠れるような実装をしています。
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2 class="content-title">デザイン</h2>
+                            <p class="content-text">
+                                ローディング画面やメニューアニメーションなどの演出を配置しました。
+                            </p>
                         </div>
                     </div>
-                </a>
-            </div>
-            <!-- 作品2 -->
-            <div class="all-works-item">
-                <a href="work5.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/Screenshot 2025-07-13 at 8.58.05.png" alt="React学習　Coffee コーポレート">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">React学習　Coffee コーポレート</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># AI活用</span>
-                            <span class="all-works-tag tag-filled"># WordPress</span>
+                    <!-- サイドバー -->
+                    <aside class="work-sidebar">
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">プロジェクト情報</h3>
+                            <dl class="project-details">
+                                <dt>クライアント</dt>
+                                <dd>架空クライアント</dd>
+                                <dt>期間</dt>
+                                <dd>2024年3月</dd>
+                                <dt>役割</dt>
+                                <dd>Webデザイン・開発</dd>
+                                <dt>使用技術</dt>
+                                <dd>HTML5, CSS3, JavaScript</dd>
+                            </dl>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <!-- 作品3 -->
-            <div class="all-works-item">
-                <a href="work3.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/MissionaTop.png" alt="MISSIONA様 LP制作">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">MISSIONA様 LP制作</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># LP制作</span>
-                            <span class="all-works-tag tag-filled"># クライアントワーク</span>
+                        <div class="sidebar-section">
+                            <h3 class="sidebar-title">関連リンク</h3>
+                            <div class="related-links">
+                                <!-- 関連リンクなし -->
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </aside>
+                </div>
             </div>
-            <!-- 作品4 -->
-            <div class="all-works-item">
-                <a href="work4.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/HIROMOZA.png" alt="コンサル系ブログ リニューアル">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">コンサル系ブログ リニューアル</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># ブログリニューアル</span>
-                            <span class="all-works-tag tag-filled"># クラウドワークス案件</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- 作品5 -->
-            <div class="all-works-item">
-                <a href="work2.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/FashonTOP.png" alt="架空サイト (Fashion)">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">架空サイト (Fashion)</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># Web制作</span>
-                            <span class="all-works-tag tag-filled"># LP</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- 作品6 -->
-            <div class="all-works-item">
-                <a href="work6.html" class="all-works-link">
-                    <div class="all-works-image">
-                        <img src="./images/Navi.png" alt="就労継続ナビ様 Blog記事">
-                    </div>
-                    <div class="all-works-content">
-                        <h3 class="all-works-item-title">就労継続ナビ様 Blog記事</h3>
-                        <div class="all-works-tags">
-                            <span class="all-works-tag tag-outline"># ライティング</span>
-                            <span class="all-works-tag tag-filled"># SEO</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-</main>
-
-    <!-- フッター -->
-    <footer class="footer">
-        <p>&copy; 2025 Miito Ota. All rights reserved.</p>
-    </footer>
-
-    <!-- フローティングナビゲーション -->
-    <div class="floating-nav">
-        <button class="floating-nav-toggle" id="floatingNavToggle">
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-            <span class="nav-icon"></span>
-        </button>
-        <div class="floating-nav-menu" id="floatingNavMenu">
-            <a href="index.html" class="floating-nav-item">HOME</a>
-            <a href="index.html#works" class="floating-nav-item">WORKS</a>
-            <a href="index.html#about" class="floating-nav-item">ABOUT</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+        <!-- 他の作品 -->
+        <section class="related-works">
+            <div class="container">
+                <h2 class="section-title">Other Works</h2>
+                <div class="slider-container">
+                    <div class="related-works-grid"></div>
+                </div>
+                <div class="back-to-works">
+                    <a href="index.html#works" class="btn btn-primary">全ての作品を見る</a>
+                </div>
+            </div>
+        </section>
+    </main>
+<div id="footer-include"></div>
+<!-- JavaScript -->
+<script src="js/script.js"></script>
 </body>
 </html> 

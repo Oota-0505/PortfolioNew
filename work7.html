@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MISSIONA様 LP制作 | 太田三一斗 Portfolio</title>
-    <meta name="description" content="MISSIONA様 LP制作の詳細をご紹介します。">
+    <title>WPカスタムテンプレート作成 | 太田三一斗 Portfolio</title>
+    <meta name="description" content="WordPressカスタムテーマ制作の学習・実践例をご紹介します。">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +68,7 @@
                     <a href="index.html#works" class="breadcrumb-link">Works</a>
                 </li>
                 <li class="breadcrumb-item active">
-                    MISSIONA様 LP制作
+                    WPカスタムテンプレート作成
                 </li>
             </ol>
         </div>
@@ -80,17 +80,17 @@
         <section class="work-hero">
             <div class="container">
                 <div class="work-hero-content">
-                    <h1 class="work-title">MISSIONA様 LP制作</h1>
-                    <p class="work-subtitle">Cloudflare Pages × GitHub連携のLP制作</p>
+                    <h1 class="work-title">WPカスタムテンプレート作成</h1>
+                    <p class="work-subtitle">WordPressカスタムテーマ制作の基礎学習</p>
                     <div class="work-meta">
                         <div class="work-tags">
-                            <span class="tag">LP制作</span>
-                            <span class="tag">クライアントワーク</span>
+                            <span class="tag">Web制作</span>
+                            <span class="tag">WordPress</span>
+                            <span class="tag">カスタムテーマ</span>
+                            <span class="tag">PHP</span>
                         </div>
                         <div class="work-url">
-                            <a href="https://missiona-lp.pages.dev/" class="btn btn-outline" target="_blank" rel="noopener">
-                                サイトを見る
-                            </a>
+                            <!-- URLがない場合は空欄 -->
                         </div>
                     </div>
                 </div>
@@ -100,8 +100,10 @@
         <!-- プロジェクト画像 -->
         <section class="work-image-section">
             <div class="container">
-                <div class="work-image-container">
-                    <img src="./images/MissionaTop.png" alt="MISSIONA様 LP制作" class="work-main-image">
+                <div class="work-image-row" style="display: flex; gap: 32px; justify-content: center; align-items: flex-start; flex-wrap: wrap;">
+                    <div class="work-image-container" style="flex: 1 1 300px; max-width: 60%;">
+                        <img src="./images/Custom.png" alt="WPカスタムテンプレート作成" class="work-main-image" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+                    </div>
                 </div>
             </div>
         </section>
@@ -113,55 +115,29 @@
                     <!-- メインコンテンツ -->
                     <div class="work-main-content">
                         <div class="content-section">
-                            <h2 class="content-title">概要</h2>
-                            <p class="content-text">
-                                MISSIONA様のランディングページを一から設計・制作し、GitHubとCloudflare Pagesを連携して公開しました。Basic認証の設定まで対応し、実務に近い形でのアウトプットを実現しました。モバイルファースト設計を意識し、常時LINE誘導ができるUIや、テキストが伝わりやすいレイアウトを追求しました。
-                            </p>
-                        </div>
-                        <div class="content-section">
-                            <h2 class="content-title">目的</h2>
-                            <p class="content-text">
-                                クライアントのビジネス目標に合わせた効果的なランディングページを制作し、ユーザーの行動を促進することを目的としました。また、実務で使用される技術スタック（GitHub、Cloudflare Pages、Basic認証）を活用し、本格的なWeb制作プロジェクトの経験を積むことも重要な目標でした。
-                            </p>
-                        </div>
-                        <div class="content-section">
-                            <h2 class="content-title">ターゲット</h2>
+                            <h2 class="content-title">制作目的</h2>
                             <ul class="content-list">
-                                <li>MISSIONA様のサービスに興味を持つ潜在顧客、特にモバイルでの閲覧が多いユーザーを想定し、スマートフォンでの使いやすさを重視した設計を行いました。</li>
+                                <li>WordPressのカスタムテーマを通じて、<strong>PHPとテンプレート階層の理解</strong>を深めること</li>
+                                <li>実務で有料テーマを活用する前提で、<strong>構造を把握しておくための基礎学習</strong></li>
                             </ul>
                         </div>
                         <div class="content-section">
-                            <h2 class="content-title">技術仕様</h2>
-                            <div class="tech-grid">
-                                <div class="tech-item">
-                                    <h3 class="tech-category">フロントエンド</h3>
-                                    <p class="tech-detail">HTML, CSS, JavaScript</p>
-                                </div>
-                                <div class="tech-item">
-                                    <h3 class="tech-category">ホスティング</h3>
-                                    <p class="tech-detail">Cloudflare Pages</p>
-                                </div>
-                                <div class="tech-item">
-                                    <h3 class="tech-category">バージョン管理</h3>
-                                    <p class="tech-detail">GitHub</p>
-                                </div>
-                                <div class="tech-item">
-                                    <h3 class="tech-category">認証</h3>
-                                    <p class="tech-detail">Basic認証</p>
-                                </div>
-                            </div>
+                            <h2 class="content-title">学んだこと</h2>
+                            <ul class="content-list">
+                                <li>get_header() や get_footer() による共通パーツの管理</li>
+                                <li>the_post(), have_posts() を使った投稿ループの仕組み</li>
+                                <li>the_permalink(), the_title(), the_post_thumbnail() での動的出力</li>
+                                <li>functions.php による add_theme_support('post-thumbnails') など機能追加の方法</li>
+                                <li>投稿とアイキャッチ画像の連携（投稿ごとの手動設定の必要性）</li>
+                                <li>カテゴリやパーマリンクの動的取得方法</li>
+                                <li>投稿の順序を調整するためのプラグイン導入（Post Types Order）</li>
+                            </ul>
                         </div>
                         <div class="content-section">
-                            <h2 class="content-title">デザイン・UI/UX</h2>
-                            <p class="content-text">
-                                モバイルファースト設計を採用し、スマートフォンでの閲覧を最優先に考えたレイアウトを実現しました。常時LINE誘導ができるUIを配置し、ユーザーの離脱を防ぎながら自然な流れでコンバージョンにつなげる設計を心がけました。テキストの可読性を重視し、情報が伝わりやすいレイアウトを追求しました。
-                            </p>
-                        </div>
-                        <div class="content-section">
-                            <h2 class="content-title">AI活用とクオリティ担保</h2>
-                            <p class="content-text">
-                                ChatGPT、Manus、CursorなどのAIツールを補助的に活用し、効率的な制作プロセスを実現しました。しかし、最終的な調整や細かい部分の調整は人力で行い、クオリティを担保しました。AIツールの利点を活かしつつ、人間の感性や細やかな配慮を組み合わせることで、高品質な成果物を提供できました。
-                            </p>
+                            <h2 class="content-title">結論</h2>
+                            <blockquote class="content-quote">
+                                WordPressはゼロから作るものではなく、「構造を理解したうえで既存テーマを調整する」のが実務的。今回の制作で“どこを触ればどこが変わるか”を体感できたことが、最大の成果だった。
+                            </blockquote>
                         </div>
                     </div>
                     <!-- サイドバー -->
@@ -170,21 +146,19 @@
                             <h3 class="sidebar-title">プロジェクト情報</h3>
                             <dl class="project-details">
                                 <dt>クライアント</dt>
-                                <dd>MISSIONA様</dd>
+                                <dd>自主制作</dd>
                                 <dt>期間</dt>
-                                <dd>2025年6月</dd>
+                                <dd>2024年6月</dd>
                                 <dt>役割</dt>
-                                <dd>Webデザイン・開発</dd>
+                                <dd>WordPressテーマ設計・開発</dd>
                                 <dt>使用技術</dt>
-                                <dd>HTML, CSS, JavaScript, GitHub, Cloudflare Pages, Basic認証</dd>
+                                <dd>WordPress, PHP, HTML5, CSS3</dd>
                             </dl>
                         </div>
                         <div class="sidebar-section">
                             <h3 class="sidebar-title">関連リンク</h3>
                             <div class="related-links">
-                                <a href="https://missiona-lp.pages.dev/" class="related-link" target="_blank" rel="noopener">
-                                    公開サイト
-                                </a>
+                                <!-- 関連リンクなし -->
                             </div>
                         </div>
                     </aside>

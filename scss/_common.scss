@@ -1,108 +1,164 @@
-// =====================
-// 共通変数・mixin
-// =====================
+@use 'variables' as *;
+@use 'mixin' as *;
 
-// カラー変数
-$color-main-bg: #2C5A5A;
-$color-main-bg-dark: #1A4040;
-$color-accent: #00B4A6;
-$color-accent-yellow: #FFD700;
-$color-white: #FFFFFF;
-$color-gray: #E0F0F0;
-$color-footer: #B0D0D0;
-$color-border: #3A6A6A;
-
-// レスポンシブブレークポイント
-$breakpoint-md: 768px;
-
-// メイングラデーション
-@mixin main-gradient {
-  background: linear-gradient(135deg, $color-main-bg 0%, $color-main-bg-dark 100%);
+// インナー枠
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-8;
+  width: 100%;
 }
 
-// アクセント下線
-@mixin accent-underline($width: 60px, $color: $color-accent-yellow) {
-  content: '';
-  display: block;
-  width: $width;
-  height: 3px;
-  background-color: $color;
-  margin: 15px auto 0;
+// ヘッダー
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $color-cool-gray;
+  z-index: 1000;
+  transition: $transition;
 }
 
-// ローディングドットアニメーション
-@mixin dot-animation($index, $deg, $delay) {
-  &:nth-child(#{$index}) {
-    transform: rotate(#{$deg}deg) translateY(-30px);
-    animation-delay: #{$delay}s;
-  }
+.nav-container {
+  @include flex-center;
+  justify-content: space-between;
+  padding: $space-4 $space-8;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-// レスポンシブmixin
-@mixin responsive {
-  @media (max-width: $breakpoint-md) {
-    @content;
-  }
-}
-
-// =====================
-// フッター共通mixin
-// =====================
-@mixin footer-style {
-  background-color: $color-main-bg-dark;
-  border-top: 1px solid $color-border;
-  padding: 20px 0;
-  color: $color-footer;
-  font-size: 0.9em;
-  text-align: center;
-  p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-  }
-}
-
-// =====================
-// タグ・バッジ共通mixin
-// =====================
-@mixin tag-style($bg: transparent, $color: $color-accent, $border: 2px solid $color-accent) {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.9em;
-  font-weight: 500;
+.nav-brand .brand-link {
+  font-family: $font-english;
+  font-size: $text-xl;
+  font-weight: 700;
+  color: $color-charcoal;
   text-decoration: none;
-  background-color: $bg;
-  color: $color;
-  border: $border;
-}
-
-// 小さめタグ用
-@mixin tag-style-small($bg: transparent, $color: $color-accent, $border: 1px solid $color-accent) {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 15px;
-  font-size: 0.8em;
-  font-weight: 500;
-  text-decoration: none;
-  background-color: $bg;
-  color: $color;
-  border: $border;
-}
-
-// =====================
-// カード共通mixin
-// =====================
-@mixin card-style($bg: $color-main-bg, $border: 1px solid $color-border, $radius: 10px, $shadow: 0 5px 15px rgba(0,0,0,0.3)) {
-  background-color: $bg;
-  border: $border;
-  border-radius: $radius;
-  overflow: hidden;
-  box-shadow: $shadow;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: $transition;
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 180, 166, 0.2);
+    color: $color-primary-green;
+  }
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: $space-8;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: $color-charcoal;
+  text-decoration: none;
+  padding: $space-2 $space-4;
+  border-radius: $border-radius-sm;
+  transition: $transition;
+  &:hover, &.active {
+    color: $color-primary-green;
+    background-color: rgba(56, 161, 105, 0.1);
+  }
+}
+
+// ボタン
+.btn {
+  display: inline-block;
+  padding: $space-4 $space-6;
+  border-radius: $border-radius-sm;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: $text-base;
+  transition: $transition;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: $color-primary-green;
+  color: $color-white;
+  border-color: $color-primary-green;
+  &:hover {
+    background: $color-dark-green;
+    border-color: $color-dark-green;
+    transform: translateY(-2px);
+    @include shadow(md);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: $color-primary-green;
+  border-color: $color-primary-green;
+  &:hover {
+    background: $color-primary-green;
+    color: $color-white;
+    transform: translateY(-2px);
+    @include shadow(md);
+  }
+}
+
+// フッター
+.footer {
+  background: linear-gradient(135deg, $color-primary-green 0%, $color-dark-green 100%);
+  color: $color-white;
+  padding: $space-16 0;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-8;
+}
+
+.footer-contact {
+  margin-bottom: $space-4;
+}
+
+.footer-email-btn {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: $color-white;
+  padding: $space-4 $space-6;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: $text-lg;
+  transition: $transition;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.footer-text {
+  font-size: $text-sm;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+// セクションタイトル
+.section-title {
+  font-size: $text-3xl;
+  font-weight: 700;
+  color: $color-charcoal;
+  text-align: center;
+  margin-bottom: $space-12;
+  &::after {
+    content: '';
+    display: block;
+    margin: 0.5em auto 0 auto;
+    width: 60px;
+    height: 3px;
+    background: $color-primary-green;
+    border-radius: 2px;
   }
 } 
