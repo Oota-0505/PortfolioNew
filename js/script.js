@@ -268,6 +268,13 @@ const workList = [
     img: './images/Custom.png',
     link: './work7.html',
   },
+  {
+    id: 'work8.html',
+    title: 'ポートフォリオサイト制作・運用',
+    desc: '自身のスキル・実績・価値観をまとめた自己紹介用ポートフォリオサイト',
+    img: './images/PF.png',
+    link: 'https://portfolionew-82q.pages.dev/',
+  },
 ];
 
 function renderOtherWorksSlider(currentId) {
@@ -352,46 +359,22 @@ function setupArtCursor() {
 }
 setupArtCursor();
 
-// ===== 共通パーツ（ローディング・フッター）自動挿入 =====
+// ===== 共通パーツ（フッター）自動挿入 =====
 function includeCommonParts() {
-    return Promise.all([
-        fetch('loading.html')
-            .then(res => res.text())
-            .then(html => {
-                const loadingDiv = document.getElementById('loading');
-                if (loadingDiv) {
-                    loadingDiv.outerHTML = html;
-                } else {
-                    document.body.insertAdjacentHTML('afterbegin', html);
-                }
-            }),
-        fetch('footer.html')
-            .then(res => res.text())
-            .then(html => {
-                const footer = document.querySelector('footer.footer');
-                if (footer) {
-                    footer.outerHTML = html;
-                } else {
-                    document.body.insertAdjacentHTML('beforeend', html);
-                }
-            })
-    ]);
+    return fetch('footer.html')
+        .then(res => res.text())
+        .then(html => {
+            const footer = document.querySelector('footer.footer');
+            if (footer) {
+                footer.outerHTML = html;
+            } else {
+                document.body.insertAdjacentHTML('beforeend', html);
+            }
+        });
 }
 
 // 共通パーツ挿入後に初期化処理を再実行
 includeCommonParts().then(() => {
-    // ===== ローディング画面の初期化 =====
-    const loadingScreen = document.getElementById('loading');
-    if (loadingScreen) {
-        window.addEventListener('load', function() {
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
-    }
     // ===== 既存の初期化処理（必要に応じて再実行） =====
     // ここに必要な初期化処理を追加
     setupArtCursor(); // フッター挿入後にも再実行

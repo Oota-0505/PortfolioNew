@@ -877,15 +877,7 @@
   .related-works-grid {
     grid-template-columns: 1fr;
   }
-  
-  .footer {
-    padding: var(--space-12) 0;
-  }
-  
-  .footer-email-btn {
-    font-size: var(--text-base);
-    padding: var(--space-4) var(--space-6);
-  }
+  /* フッター関連のスタイルはfooter.cssに統一 */
 }
 
 @media (max-width: 576px) {

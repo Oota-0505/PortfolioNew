@@ -1,0 +1,41 @@
+.footer {
+  background: linear-gradient(90deg, #14532d 0%, #166534 100%); /* 濃いグリーン */
+  color: #f0fdf4;
+  padding: 2.5em 0 1.2em 0;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+}
+.footer-contact {
+  margin-bottom: 1em;
+}
+.footer-email-btn, .footer-contact-btn {
+  display: inline-block;
+  padding: 0.8em 2.2em;
+  border-radius: 2em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, #166534 0%, #4ade80 100%);
+  color: #fff;
+  border: 2px solid #b9fbc0;
+  text-shadow: 0 1px 4px rgba(20, 83, 45, 0.18);
+  box-shadow: 0 2px 16px 0 rgba(20,83,45,0.08);
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.footer-email-btn:hover, .footer-contact-btn:hover {
+  background: linear-gradient(90deg, #4ade80 0%, #166534 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 24px 0 rgba(20,83,45,0.18);
+}
+.footer-text {
+  color: #b9fbc0;
+  font-size: 0.95em;
+  margin-top: 0.5em;
+} 
