@@ -5,6 +5,7 @@ function hideLoading() {
         loadingScreen.classList.add('hidden');
         setTimeout(() => {
             loadingScreen.style.display = 'none';
+            document.body.classList.add('loaded'); // ローディング終了後にカーソル表示
         }, 500);
     }
 }

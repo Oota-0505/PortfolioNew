@@ -96,6 +96,14 @@ a:hover, button:hover, .footer-contact-btn:hover {
   box-shadow: 0 0 8px #b9fbc0;
 }
 
+/* ローディング中はアートカーソル非表示 */
+body:not(.loaded) #art-cursor {
+  display: none !important;
+}
+body.loaded #art-cursor {
+  display: block;
+}
+
 /* ホバー時はアートカーソルを非表示にし、指カーソルだけ */
 a:hover ~ #art-cursor,
 button:hover ~ #art-cursor,
