@@ -331,6 +331,64 @@
   box-shadow: var(--shadow-md);
 }
 
+/* ===== リッチボタン追加 ===== */
+.btn-rich {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.85em 2.3em;
+  border-radius: 2em;
+  font-size: 1.12rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #166534 0%, #4ade80 100%);
+  color: #fff;
+  border: 2px solid #b9fbc0;
+  box-shadow: 0 4px 24px 0 rgba(20,83,45,0.13);
+  text-shadow: 0 1px 4px rgba(20, 83, 45, 0.18);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.18s;
+  position: relative;
+  z-index: 1;
+}
+.btn-rich:hover {
+  background: linear-gradient(90deg, #4ade80 0%, #166534 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px 0 rgba(20,83,45,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.btn-github-rich {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.85em 1.7em 0.85em 1.2em;
+  border-radius: 2em;
+  font-size: 1.08rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #23272e 0%, #4ade80 100%);
+  color: #fff;
+  border: 2px solid #b9fbc0;
+  box-shadow: 0 4px 24px 0 rgba(20,83,45,0.13);
+  text-shadow: 0 1px 4px rgba(20, 83, 45, 0.18);
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.18s;
+  margin-left: 0.7em;
+  position: relative;
+  z-index: 1;
+}
+.btn-github-rich:hover {
+  background: linear-gradient(90deg, #4ade80 0%, #23272e 100%);
+  color: #fff;
+  box-shadow: 0 8px 32px 0 rgba(20,83,45,0.18);
+  transform: translateY(-2px) scale(1.04);
+}
+.btn-github-rich img {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 0.2em;
+}
+
 /* Work Image Section */
 .work-image-section {
   padding: var(--space-12) 0;
@@ -616,6 +674,16 @@
   font-size: var(--text-sm);
   color: var(--color-warm-gray);
   line-height: 1.6;
+}
+
+.work-url {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .back-to-works {
