@@ -306,32 +306,45 @@ if (document.querySelector('.related-works-grid')) {
   renderOtherWorksSlider(pageName);
 }
 
-// ===== Other Worksスライダー自動送り（2件ずつ） =====
-function setupAutoOtherWorksSlider() {
-  const slider = document.querySelector('.related-works-grid');
-  if (!slider) return;
-  const cards = slider.querySelectorAll('.work-card');
-  if (cards.length <= 1) return;
-  let currentIndex = 0;
-  function getVisibleCount() {
-    return window.innerWidth <= 900 ? 1 : 2;
+// ===== Other Works 自動スライダー（PC3枚/SP1枚ピッタリ対応） =====
+(function() {
+  const grid = document.querySelector('.related-works-grid');
+  if (!grid) return;
+  let current = 0;
+  let intervalId = null;
+
+  function getVisible() {
+    return window.innerWidth <= 600 ? 1 : 3;
   }
-  function slideTo(index) {
-    const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(slider).gap) || 0;
-    slider.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+  function getGap() {
+    const style = window.getComputedStyle(grid);
+    return parseInt(style.gap) || 0;
   }
-  setInterval(() => {
-    const visibleCount = getVisibleCount();
-    currentIndex += visibleCount;
-    if (currentIndex >= cards.length) {
-      currentIndex = 0;
-    }
-    slideTo(currentIndex);
-  }, 3000);
-}
-if (document.querySelector('.related-works-grid')) {
-  setupAutoOtherWorksSlider();
-}
+  function getCards() {
+    return grid.querySelectorAll('.work-card');
+  }
+  function slideTo(idx) {
+    const cards = getCards();
+    if (!cards.length) return;
+    const cardWidth = cards[0].offsetWidth + getGap();
+    grid.style.transform = `translateX(${-cardWidth * idx}px)`;
+  }
+  function autoSlide() {
+    const cards = getCards();
+    const visible = getVisible();
+    if (cards.length <= visible) return;
+    current = (current + 1) % (cards.length - visible + 1);
+    slideTo(current);
+  }
+  function startSlider() {
+    if (intervalId) clearInterval(intervalId);
+    current = 0;
+    slideTo(current);
+    intervalId = setInterval(autoSlide, 3000);
+  }
+  window.addEventListener('resize', startSlider);
+  startSlider();
+})();
 
 // ===== アートカーソル追従 =====
 function setupArtCursor() {

@@ -782,85 +782,62 @@
   }
 }
 
-/* ===== Other Works 横スライダー用 ===== */
+/* --- Other Works スライダー レイアウト調整 --- */
 .slider-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100%;
-  margin-bottom: var(--space-12);
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+.slider-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 .related-works-grid {
   display: flex;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-  gap: 4%;
-  padding-left: 2%;
-  padding-right: 2%;
+  gap: 32px;
+  transition: transform 0.4s cubic-bezier(.77,0,.18,1);
+}
+.work-card {
+  flex: 0 0 calc((100% - 64px) / 3);
+  max-width: calc((100% - 64px) / 3);
+  min-width: 220px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 0 rgba(99,102,241,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.work-image {
   width: 100%;
-  padding-bottom: 8px;
-}
-.related-works-grid .work-card {
-  min-width: 30%;
-  max-width: 30%;
-  flex: 0 0 30%;
-}
-.slider-btn {
-  background: rgba(56,161,105,0.9);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 2rem;
+  aspect-ratio: 16/10;
+  background: #f7fafc;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
-  cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
 }
-.slider-btn-left {
-  left: -20px;
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #fff;
+  display: block;
 }
-.slider-btn-right {
-  right: -20px;
+@media (max-width: 1024px) {
+  .work-card {
+    flex: 0 0 48%;
+    max-width: 48%;
+  }
 }
-.slider-btn:hover {
-  background: #2F855A;
-}
-@media (max-width: 900px) {
+@media (max-width: 700px) {
+  .work-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
   .related-works-grid {
-    gap: 2vw;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  .related-works-grid .work-card {
-    min-width: 60vw;
-    max-width: 65vw;
-    flex: 0 0 60vw;
-  }
-  .work-image img {
-    height: 70px;
-  }
-  .work-content {
-    padding: var(--space-2);
-  }
-}
-@media (max-width: 600px) {
-  .slider-btn {
-    width: 32px;
-    height: 32px;
-    font-size: 1.3rem;
-  }
-  .related-works-grid .work-card {
-    min-width: 90vw;
-    max-width: 95vw;
-    flex: 0 0 90vw;
+    gap: 0;
   }
 }
 
@@ -1004,5 +981,118 @@
   }
   .nav-toggle {
     display: flex;
+  }
+}
+
+/* ===== スライダー レスポンシブ最適化・リファクタリング ===== */
+@media (max-width: 1024px) and (min-width: 701px) {
+  .work-title {
+    font-size: 1.05rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .work-description {
+    font-size: 0.92rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .work-card {
+    /* gapが大きすぎる場合はここで調整 */
+    /* flex: 0 0 49%; max-width: 49%; */
+  }
+}
+
+/* 2枚→1枚切り替え、gapやflex指定の重複を整理 */
+@media (max-width: 1024px) {
+  .work-card {
+    flex: 0 0 48%;
+    max-width: 48%;
+    min-width: 0;
+  }
+  .related-works-grid {
+    gap: 2%;
+  }
+}
+@media (max-width: 700px) {
+  .work-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .related-works-grid {
+    gap: 0;
+  }
+}
+/* 600px以下は.containerで囲む案を維持 */
+@media (max-width: 600px) {
+  .container {
+    max-width: 95vw;
+    width: 95vw;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .slider-container {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .slider-container::-webkit-scrollbar {
+    display: none;
+  }
+  .related-works-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .work-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 700px) {
+  .work-title {
+    font-size: 1.15rem;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .work-description {
+    font-size: 1rem;
+    padding-left: 0.7em;
+    padding-right: 0.7em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .back-to-works {
+    margin-top: 3.5em;
+    margin-bottom: 3.5em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+    box-sizing: border-box;
   }
 }
